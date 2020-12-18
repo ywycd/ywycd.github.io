@@ -1,4 +1,4 @@
-baseurl = "http://localhost:1313/"
+baseurl = "https://ywycd.github.io/"
 languageCode = "en-us"
 theme = "terminal"
 hasCJKLanguage = true
@@ -23,7 +23,7 @@ enableGitInfo = true
     subtitle = "有约不来过夜半，闲敲棋子落灯花"
     keywords = ""
     copyright = ""
-    menuMore = "TagCloud"
+    menuMore = "menuMore"
     readMore = "Read more"
     readOtherPosts = "Read other posts"
 
@@ -55,3 +55,6 @@ baseName = "atom"
 
 [markup.highlight]
   noClasses = false
+  
+[outputs]
+  home = ["HTML", "RSS", "JSON"]

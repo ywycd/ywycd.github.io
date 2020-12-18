@@ -1,22 +1,9 @@
 +++
 title = "About"
-date = "2019-01-25"
-author = "Radek"
+date = "2020-10-25"
+author = "ywy"
 +++
+业余喜欢折腾，不过有时还是花钱省时间安逸。
 
-# Hi there
+当前主题 [terminal](https://github.com/ttys3/hugo-theme-terminal/tree/ttys3) 自己做了点微调。[nas参考](https://www.smzdm.com/fenlei/nascunchufuwuqi/post/#feed-main)
 
-My name is Radek and I'm the author of this theme. I made it to help you present your ideas easier.
-
-We all know how hard is to start something on the web, especially these days. You need to prepare a bunch of stuff, configure them and when that’s done — create the content.
-
-This theme is pretty basic and covers all of the essentials. All you have to do is start typing!
-
-The theme includes:
-
-- **5 duotone themes**, depending on your preferences (orange, red, blue, green, pink)
-- [**Fira Code**](https://github.com/tonsky/FiraCode) as default monospaced font. It's gorgeous!
-- **really nice, custom duotone** syntax highlighting based on [**PrismJS**](https://prismjs.com)
-- mobile friendly layout
-
-So, there you have it... enjoy!

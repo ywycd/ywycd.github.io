@@ -1,4 +1,12 @@
-<!--
-To add an extended footer section, please create
-`layouts/partials/extended_footer.html` in your Hugo directory.
--->
+<a id="search-btn" style="display: inline-block;" href="javascript:void(0);">
+    <span class="icon-search">捜</span>
+</a>
+
+<div id="fastSearch">
+    <input id="searchInput" tabindex="0">
+    <ul id="searchResults">
+    </ul>
+</div>
+<script src="/js/fuse.min.js"></script> 
+<script src="/js/fastsearch.js"></script>
+
