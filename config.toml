@@ -12,8 +12,10 @@ enableGitInfo = true
   fullWidthTheme = false
   centerTheme = true
   authorName = "ywy"
+  favicon = "/img/apple-touch-icon-rm.png"
   # for RSS feed filter https://gohugo.io/functions/where/#mainsections
   mainSections = ["post", "note", "docs"]
+  toc = true
 
   statusBadge = ""
 

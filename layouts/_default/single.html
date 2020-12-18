@@ -40,8 +40,11 @@
     {{ end }}
   {{ end }}
 
+
   <!-- TOC -->
-  {{- partial "post/toc.html" . -}}
+  {{ if ( .Site.Params.toc | default true ) }}
+    {{- partial "post/toc.html" . -}}
+  {{ end }}
 
   <!-- Outdated Info Warning -->
   {{- partial "post/outdated-info-warning.html" . -}}
