@@ -1,0 +1,57 @@
+baseurl = "http://localhost:1313/"
+languageCode = "en-us"
+theme = "terminal"
+hasCJKLanguage = true
+paginate = 5
+enableGitInfo = true
+
+[params]
+  contentTypeName = "post"
+  themeColor = "orange"
+  showMenuItems = 2
+  fullWidthTheme = false
+  centerTheme = true
+  authorName = "ywy"
+  # for RSS feed filter https://gohugo.io/functions/where/#mainsections
+  mainSections = ["post", "note", "docs"]
+
+  statusBadge = ""
+
+[languages]
+  [languages.en]
+    title = "ywy"
+    subtitle = "有约不来过夜半，闲敲棋子落灯花"
+    keywords = ""
+    copyright = ""
+    menuMore = "TagCloud"
+    readMore = "Read more"
+    readOtherPosts = "Read other posts"
+
+    [languages.en.params.logo]
+      logoText = "ASDW"
+      logoHomeLink = "/"
+
+    [languages.en.menu]
+      [[languages.en.menu.main]]
+        identifier = "about"
+        name = "About"
+        url = "/about"
+      [[languages.en.menu.main]]
+        identifier = "archive"
+        name = "Archive"
+        url = "/archive"
+      [[languages.en.menu.main]]
+        identifier = "tagcloud"
+        name = "TagCloud"
+        url = "/tagcloud"
+
+[outputFormats]
+[outputFormats.RSS]
+mediatype = "application/rss"
+baseName = "atom"
+
+[author]
+    name = "ywy"
+
+[markup.highlight]
+  noClasses = false
