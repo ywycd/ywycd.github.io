@@ -41,7 +41,7 @@ curl -sk -X PUT "https://api.cloudflare.com/client/v4/zones/<域名的 ZoneID>/d
 wget https://github.com/fatedier/frp/releases/download/v0.34.1/frp_0.34.1_linux_arm64.tar.gz
 tar -zxvf frp_0.34.1_linux_arm64.tar.gz
 ```
-
+**没事别恢复出厂设置，别恢复，别恢复**出厂后原来破解方法失效，拆机ttl有点麻烦。可找客服改桥接。10001按4快速报修，但人工简直智障，选宽带检测正常重启，然后就自动挂掉了！！！试了好几次，还是先找其他人。http://192.168.1.1/bridge_route.gch自助修改。
 
 
 
