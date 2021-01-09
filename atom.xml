@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en-US"><title>ywy</title><id>https://ywycd.github.io/</id><description>Recent content on ywy</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><updated>2021-01-09T09:33:19Z</updated><link href="https://ywycd.github.io/atom.xml" rel="self" type="application/rss+xml"/><entry><title>自动签到</title><id>https://ywycd.github.io/post/auto-chekin/</id><link href="https://ywycd.github.io/post/auto-chekin/" rel="alternate" type="text/html"/><updated>2021-01-09T09:33:19Z</updated><published>2021-01-09T07:30:25Z</published><description>开始会打开各app、网站，后面停了就懒得继续，手动太累。签到升级，获得更多的权限。简单介绍下相关工具。 qiandao 17年注册，中间邮箱一直提示签到失败</description><content type="html"><![CDATA[
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en-US"><title>ywy</title><id>https://ywycd.github.io/</id><description>Recent content on ywy</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><updated>2021-01-09T13:00:12Z</updated><link href="https://ywycd.github.io/atom.xml" rel="self" type="application/rss+xml"/><entry><title>自动签到</title><id>https://ywycd.github.io/post/auto-chekin/</id><link href="https://ywycd.github.io/post/auto-chekin/" rel="alternate" type="text/html"/><updated>2021-01-09T09:33:19Z</updated><published>2021-01-09T07:30:25Z</published><description>开始会打开各app、网站，后面停了就懒得继续，手动太累。签到升级，获得更多的权限。简单介绍下相关工具。 qiandao 17年注册，中间邮箱一直提示签到失败</description><content type="html"><![CDATA[
         <p>开始会打开各app、网站，后面停了就懒得继续，手动太累。签到升级，获得更多的权限。简单介绍下相关工具。</p>
 <h2 id="qiandao">qiandao</h2>
 <p>17年注册，中间邮箱一直提示签到失败，全停。后面发现可以自己添加网站签到，重新使用。有的模板已经无法使用。可能chrome版本问题，现在用cookies获取工具（已运行）老是一串代码，无法删除。只能修改变量，手动填写。</p>
@@ -942,5 +942,252 @@ config.toml 加了<code>[taxonomies]</code>，要用tags: (换行)-
 centerTheme = true 主题居中显示。
 后面发现灯大修改是在tty3分支。进terminal用<code>git checkout ttys3</code>切换，git pull发现已经最新。首页终于出现图片。
 emmm最后还是换成了even主题。灯大主题部署到netlify显示不完全，文章没有内容摘要（不知道第一篇怎么就显示），一样内容even就有摘要。</p>
+
+      ]]></content></entry><entry><title>Hetzner折腾</title><id>https://ywycd.github.io/post/buy-hetzner/</id><link href="https://ywycd.github.io/post/buy-hetzner/" rel="alternate" type="text/html"/><updated>2021-01-09T13:00:12Z</updated><published>2020-09-21T05:22:39Z</published><description>注册，依靠翻译、fq完成。购买需要身份验证，等他们上班。11点发验证身份，lj英语编了下。2点还没回复，睡了一觉。 5点醒来，看邮箱，发现被拒</description><content type="html"><![CDATA[
+        <p>注册，依靠翻译、fq完成。购买需要身份验证，等他们上班。11点发验证身份，lj英语编了下。2点还没回复，睡了一觉。</p>
+<p>5点醒来，看邮箱，发现被拒，账号被删。不信邪，换邮箱重新注册，找了下验证模板。被现实打击，回复很快，但还是被删。找金毛大佬代购，170/月。后面还越涨越高。</p>
+<p>1.Hetzner 独服一键安装系统（软 RAID0）</p>
+<p>注意：这个方法只适用于软 RAID（不支持硬 RAID）、多硬盘且所有硬盘大小相同的 Hetzner 独立服务器。
+SSH 连接服务，输入</p>
+<div class="highlight"><pre class="chroma"><code class="language-shell" data-lang="shell"><span class="nb">echo</span> x <span class="p">|</span> installimage -p /boot:ext3:1G,/:ext4:all -l <span class="m">0</span> -r yes -i images/Ubuntu-1804-bionic-64-minimal.tar.gz -a -n Hz <span class="o">&amp;&amp;</span> reboot
+</code></pre></div><p>
+
+
+
+
+
+
+
+
+<a href="https://npchk.info/hetzner-raid0/" >硬RAID0</a> 安装 Ubuntu 18.04。</p>
+<p>2.盒子软件安装</p>
+<p>一般的刷子完全可以仅依赖
+
+
+
+
+
+
+
+
+<a href="https://github.com/Aniverse/inexistence" >星大脚本</a> ,此时还可以大喊 
+
+
+
+
+
+
+
+
+<a href="https://github.com/amefs/quickbox-lite" >efs</a> 牛逼！</p>
+<p>手动安装 <code>bash &lt;(wget --no-check-certificate -qO- https://github.com/Aniverse/inexistence/raw/master/inexistence.sh)</code></p>
+<p>用户名asdw,qB、De、rT、FlexGet等。 
+
+
+
+
+
+
+
+
+<a href="https://github.com/jerrymakesjelly/autoremove-torrents" >自动删种</a> 和 
+
+
+
+
+
+
+
+
+<a href="https://github.com/Aniverse/WiKi/blob/master/Flexget.md" >Flexget示例</a></p>
+
+      ]]></content></entry><entry><title>Docker Clash记录</title><id>https://ywycd.github.io/post/docker-clash/</id><link href="https://ywycd.github.io/post/docker-clash/" rel="alternate" type="text/html"/><updated>2021-01-09T13:00:12Z</updated><published>2020-05-17T05:10:41Z</published><description>起因： clash N多分支，体验了luci openclash不稳定，改动后经常失效，换成docker clash。 配置文件准备 docker-compose.yml 启动clash …</description><content type="html"><![CDATA[
+        <p>起因：
+
+
+
+
+
+
+
+
+<a href="https://github.com/Dreamacro/clash" >clash</a> N多分支，体验了luci openclash不稳定，改动后经常失效，换成docker clash。</p>
+<h2 id="配置文件准备">配置文件准备</h2>
+<h3 id="docker-composeyml">docker-compose.yml</h3>
+<p>启动clash</p>
+<div class="highlight"><pre class="chroma"><code class="language-yml" data-lang="yml"><span class="w">    </span><span class="k">version</span><span class="p">:</span><span class="w"> </span><span class="s1">&#39;3.4&#39;</span><span class="w">
+</span><span class="w">    </span><span class="k">services</span><span class="p">:</span><span class="w">
+</span><span class="w">      </span><span class="k">clash</span><span class="p">:</span><span class="w">
+</span><span class="w">        </span><span class="k">image</span><span class="p">:</span><span class="w"> </span>dreamacro/clash<span class="p">:</span>latest-arm64v8<span class="w">
+</span><span class="w">        </span><span class="k">volumes</span><span class="p">:</span><span class="w">
+</span><span class="w">          </span>- ./config.yaml<span class="p">:</span>/root/.config/clash/config.yaml<span class="w">
+</span><span class="w">          </span>- ./dashboard<span class="p">:</span>/ui<span class="w">
+</span><span class="w">        </span><span class="k">ports</span><span class="p">:</span><span class="w">
+</span><span class="w">          </span>- <span class="s2">&#34;7890:7890&#34;</span><span class="w">
+</span><span class="w">          </span>- <span class="s2">&#34;7891:7891&#34;</span><span class="w">
+</span><span class="w">          </span>- <span class="s2">&#34;7892:7892&#34;</span><span class="w">
+</span><span class="w">          </span>- <span class="s2">&#34;9090:9090&#34;</span><span class="w">
+</span><span class="w">          </span>- <span class="s2">&#34;1053:1053&#34;</span><span class="w">
+</span><span class="w">        </span><span class="k">restart</span><span class="p">:</span><span class="w"> </span>always<span class="w">
+</span><span class="w">        </span><span class="c"># When your system is Linux, you can use `network_mode: &#34;host&#34;` directly.</span><span class="w">
+</span><span class="w">        </span><span class="k">network_mode</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;host&#34;</span><span class="w">
+</span><span class="w">        </span><span class="k">container_name</span><span class="p">:</span><span class="w"> </span>clash<span class="w">
+</span></code></pre></div><p>9090是web ui端口。1053 dns端口，小钢炮53端口被占。<code>volumes:- ./dashboard:/ui</code> /宿主机路径:/容器路径，开始这里不明白，错了好几回。
+UI有两种
+
+
+
+
+
+
+
+
+<a href="https://github.com/Dreamacro/clash-dashboard/tree/gh-pages" >官方</a>，<code>http://localhost:9090/ui</code>
+
+
+
+
+
+
+
+
+<a href="https://github.com/haishanh/yacd/tree/gh-pages" >yacd</a>节点收起。<code>http://localhost:8080/</code>。网页版http://yacd.haishan.me/，登陆后可看。
+两种ui都用的话，另一种要nignx加载。学习了
+
+
+
+
+
+
+
+
+<a href="https://www.ruanyifeng.com/blog/2018/02/nginx-docker.html" >&ndash;rm指令</a>，容器停止就会删除。</p>
+<h3 id="configyaml">config.yaml</h3>
+<p>代理配置
+
+
+
+
+
+
+
+
+<a href="https://gist.githubusercontent.com/lddsb/b041bb03a8c1295a77d00a5235636ec1/raw/21f0731f40fd53f7b47ad6e45f17f15c811f6b3e/config.yml" >示例</a></p>
+<div class="highlight"><pre class="chroma"><code class="language-yml" data-lang="yml"><span class="w">    </span><span class="k">port</span><span class="p">:</span><span class="w"> </span><span class="m">7890</span><span class="w">
+</span><span class="w">    </span><span class="k">socks-port</span><span class="p">:</span><span class="w"> </span><span class="m">7891</span><span class="w">
+</span><span class="w">    </span><span class="k">allow-lan</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+</span><span class="w">    </span><span class="k">external-controller</span><span class="p">:</span><span class="w"> </span><span class="m">0.0.0.0</span><span class="p">:</span><span class="m">8080</span><span class="w">
+</span></code></pre></div><p>照搬openclash设定，订阅转换参考
+
+
+
+
+
+
+
+
+<a href="https://github.com/tindy2013/subconverter" >subconverter</a></p>
+<h2 id="启动clash">启动clash</h2>
+<p>进入放置两个配置文件目录，运行<code>docker-compose up -d</code>  。查看clash日志，会发现5个端口在监听，代理节点规则加载。日常用SwitchyOmega连接sock5节点，细分网站代理。</p>
+<p>还可以局域网转发，有点难，没尝试过。docker里有clash网关。</p>
+<p>参考网址：</p>
+<ol>
+<li>
+
+
+
+
+
+
+
+
+<a href="https://zmcdbp.com/run-clash-in-docker/" >在Docker中使用Clash</a></li>
+<li>
+
+
+
+
+
+
+
+
+<a href="https://wuyefan.wordpress.com/2020/02/12/clash-docker-openwrt-%E9%85%8D%E7%BD%AE%E4%B8%8E%E8%B8%A9%E5%9D%91%E8%AE%B0%E5%BD%95/amp/" >Clash Docker &amp; Openwrt 配置与踩坑记录</a></li>
+</ol>
+
+      ]]></content></entry><entry><title>Docker adguardhome记录</title><id>https://ywycd.github.io/post/docker-adguardhome/</id><link href="https://ywycd.github.io/post/docker-adguardhome/" rel="alternate" type="text/html"/><updated>2021-01-09T13:00:12Z</updated><published>2020-03-13T09:44:32Z</published><description>安装 docker pull adguard/adguardhome:arm64-latest桥接macnet ip link set eth0 promisc on docker network create -d macvlan --subnet=192.168.2.0/24 …</description><content type="html"><![CDATA[
+        <h2 id="安装">安装</h2>
+<div class="highlight"><pre class="chroma"><code class="language-docker" data-lang="docker">    docker pull adguard/adguardhome:arm64-latest<span class="err">
+</span></code></pre></div><h3 id="桥接macnet">桥接macnet</h3>
+<div class="highlight"><pre class="chroma"><code class="language-docker" data-lang="docker">    ip link <span class="nb">set</span> eth0 promisc on<span class="err">
+</span><span class="err"></span>    docker network create -d macvlan --subnet<span class="o">=</span>192.168.2.0/24 --gateway<span class="o">=</span>192.168.2.1 -o <span class="nv">parent</span><span class="o">=</span>eth0 macnet <span class="err">
+</span></code></pre></div><p>启动</p>
+<div class="highlight"><pre class="chroma"><code class="language-docker" data-lang="docker">    docker run --name adguardhome -v /root/AdguardHome/workdir:/opt/adguardhome/work -v /root/AdguardHome/confdir:/opt/adguardhome/conf -d --network macnet --ip 192.168.2.143 --restart always adguard/adguardhome:arm64-latest <span class="err">
+</span></code></pre></div><p>主路由设置lan口网关、dns，有统计，但xx上网速度不行</p>
+<h3 id="host模式">host模式</h3>
+<p>删除旧容器、设置</p>
+<div class="highlight"><pre class="chroma"><code class="language-docker" data-lang="docker">    docker stop adguardhome<span class="err">
+</span><span class="err"></span>    docker rm adguardhome<span class="err">
+</span><span class="err"></span>    rm -rf /root/AdguardHome/confdir/*<span class="err">
+</span><span class="err"></span>    rm -rf /root/AdguardHome/workdir/*<span class="err">
+</span></code></pre></div><p>启动</p>
+<div class="highlight"><pre class="chroma"><code class="language-docker" data-lang="docker">    docker run --name adguardhome <span class="se">\
+</span><span class="se"></span>            -v /root/AdguardHome/workdir:/opt/adguardhome/work <span class="se">\
+</span><span class="se"></span>            -v /root/AdguardHome/confdir:/opt/adguardhome/conf <span class="se">\
+</span><span class="se"></span>            --restart always <span class="se">\
+</span><span class="se"></span>            --net host <span class="se">\
+</span><span class="se"></span>            -d adguard/adguardhome:arm64-latest<span class="err">
+</span></code></pre></div><p>端口改成1080、1053,指定网关不行。老毛子设置转发(分开填入），统计里只有路由器一个客户端</p>
+<div class="highlight"><pre class="chroma"><code class="language-shell" data-lang="shell">all-servers
+<span class="nv">server</span><span class="o">=</span>192.168.1.144#1053 <span class="c1">#AdGuardHome</span>
+</code></pre></div><p>
+
+
+
+
+
+
+
+
+<a href="https://www.right.com.cn/forum/forum.php?mod=viewthread&amp;tid=2635946&amp;extra=page%3D2%26filter%3Dtypeid%26typeid%3D21&amp;page=1" >这个</a> 提示后只修改80端口,修改dns成功。但必须添加防火墙规则才能上网。
+<code> iptables -t nat -I POSTROUTING -o eth0 -j MASQUERADE</code></p>
+<p>小钢炮开启enware,安装cutter、iptables,加规则无门时发现有个iptables-save命令。运行重启路由、小钢炮，可以正常上网，ok。</p>
+<p>双开adg再试</p>
+<h2 id="设置">设置</h2>
+<h3 id="上游dns">上游dns</h3>
+<div class="highlight"><pre class="chroma"><code class="language-html" data-lang="html">1.2.4.8
+223.5.5.5
+119.29.29.29
+114.114.114.114
+https://dns.rubyfish.cn/dns-query
+tls://dns.google
+tls://1.1.1.1
+</code></pre></div><p>勾选 同时查询。Bootstrap DNS 服务器 <code>114.114.114.114:53</code>，测试上游后应用</p>
+<h3 id="规则">规则</h3>
+<div class="highlight"><pre class="chroma"><code class="language-html" data-lang="html">https://hosts.nfz.moe/full/hosts
+https://gitee.com/banbendalao/adguard/raw/master/ADgk.txt
+https://gitee.com/privacy-protection-tools/anti-ad/raw/master/easylist.txt
+</code></pre></div><p>修改AdGuardHome.yaml里的</p>
+<div class="highlight"><pre class="chroma"><code class="language-yml" data-lang="yml"><span class="w">  </span><span class="k">blocked_response_ttl</span><span class="p">:</span><span class="w"> </span><span class="m">60</span><span class="w">
+</span><span class="w">  </span><span class="k">ratelimit</span><span class="p">:</span><span class="w"> </span><span class="m">0</span><span class="w">
+</span></code></pre></div><p>重启容器</p>
+<h2 id="忘记密码">忘记密码</h2>
+<p>
+
+
+
+
+
+
+
+
+<a href="https://github.com/AdguardTeam/AdGuardHome/wiki/Configuration#password-reset" >wiki</a> 安装Apache2，自带htpasswd。用termux
+使用htpasswd生成加密密码，linux用下面命令。输出结果是<code>&lt;USERNAME&gt;:&lt;HASH&gt;</code></p>
+<p><code> htpasswd -B -n -b &lt;USERNAME&gt; &lt;PASSWORD&gt;</code>
+编辑AdGuardHome.yaml，替换相应内容。</p>
+<div class="highlight"><pre class="chroma"><code class="language-yml" data-lang="yml"><span class="w">     </span><span class="k">users</span><span class="p">:</span><span class="w">
+</span><span class="w">     </span>- <span class="k">name</span><span class="p">:</span><span class="w"> </span>...<span class="w">
+</span><span class="w">     </span><span class="k">password</span><span class="p">:</span><span class="w"> </span>&lt;HASH&gt;<span class="w">
+</span></code></pre></div><p>开始使用<code>&lt;USERNAME&gt; &lt;PASSWORD&gt;</code>，发现登陆不上。termux用&lt;&gt;错误，改成[]生成。window提示语法错误。
+注意到<code>password: &lt;HASH&gt;</code>，灵感一来不加括号，登陆成功。&lt;&gt;应该是提示可修改。</p>
 
       ]]></content></entry></feed>
