@@ -1,4 +1,67 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en-US"><title>ywy</title><id>https://ywycd.github.io/</id><description>Recent content on ywy</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><updated>2021-01-09T13:00:12Z</updated><link href="https://ywycd.github.io/atom.xml" rel="self" type="application/rss+xml"/><entry><title>自动签到</title><id>https://ywycd.github.io/post/auto-chekin/</id><link href="https://ywycd.github.io/post/auto-chekin/" rel="alternate" type="text/html"/><updated>2021-01-09T09:33:19Z</updated><published>2021-01-09T07:30:25Z</published><description>开始会打开各app、网站，后面停了就懒得继续，手动太累。签到升级，获得更多的权限。简单介绍下相关工具。 qiandao 17年注册，中间邮箱一直提示签到失败</description><content type="html"><![CDATA[
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en-US"><title>ywy</title><id>https://ywycd.github.io/</id><description>Recent content on ywy</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><updated>2021-01-16T10:13:39Z</updated><link href="https://ywycd.github.io/atom.xml" rel="self" type="application/rss+xml"/><entry><title>Chfs设置</title><id>https://ywycd.github.io/post/chfs-advanced/</id><link href="https://ywycd.github.io/post/chfs-advanced/" rel="alternate" type="text/html"/><updated>2021-01-16T10:13:39Z</updated><published>2021-01-16T09:14:23Z</published><description>chfs文件共享服务器 自建网盘支持webdav，NextCloud功能太多。从 N1 docker 镜像分享找到了chfs。docker exec chfs addusr 用户名 密码 权限添</description><content type="html"><![CDATA[
+        <p>chfs文件共享服务器</p>
+<p>自建网盘支持webdav，NextCloud功能太多。从
+
+
+
+
+
+
+
+
+<a href="https://www.right.com.cn/forum/thread-911375-1-1.html" >N1 docker 镜像分享</a>找到了chfs。<code>docker exec chfs addusr 用户名 密码 权限</code>添加账户，网页提示更新。
+
+
+
+
+
+
+
+
+<a href="http://iscute.cn/chfs" >官网</a><br>
+有分享文件需求，看了下其他
+
+
+
+
+
+
+
+
+<a href="https://github.com/zhaojun1998/zfile" >zfile</a> 
+
+
+
+
+
+
+
+
+<a href="https://larsjung.de/h5ai/" >h5ai</a>。先升级chfs，有
+
+
+
+
+
+
+
+
+<a href="https://hub.docker.com/r/jonnyan404/chfs" >docker镜像</a>。根据介绍运行，不过不理想。配置<code>--path=/data</code>首页会显示分享。用<code>--path=&quot;d:\\projects|e:\\nsis&quot;</code>失败，应该是因为没映射目录。<br>
+在目录下新建，但匿名会全部显示，研究rule。用<code>--rule=&quot;::r|ceshizu:ceshizu123:r:test:rwd&quot;</code>失败，修改重复测试，受到<code>--rule=&quot;::|</code>匿名用户什么权限都没有启发，<code>:::share:r|admin:admin123:rwd</code>成功（遗漏:失败过）。访问权限分为四种：&quot;&quot;(不可访问)，&ldquo;R&rdquo;(只读)，&ldquo;W&rdquo;(读写)，&ldquo;D&rdquo;(写+删除)。<br>
+老是删除重建，考虑自定义配置文件<code>--file=/data/xxx.ini</code>，顺便加上https访问。一直默认配置，发现ini没保存，重新填写。
+
+
+
+
+
+
+
+
+<a href="http://iscute.cn/asset/chfs.ini" >配置文件模板地址</a></p>
+<div class="highlight"><pre class="chroma"><code class="language-docker" data-lang="docker">docker run --restart<span class="o">=</span>on-failure:3 -d --name chfs -p 8080:443  -v /path/you/dir:/data jonnyan404/chfs --file<span class="o">=</span>/data/xxx.ini<span class="err">
+</span></code></pre></div><p>设置完毕。之前webdav配置要重新修改，不然网络出错（ssl证书问题）。</p>
+
+      ]]></content></entry><entry><title>自动签到</title><id>https://ywycd.github.io/post/auto-chekin/</id><link href="https://ywycd.github.io/post/auto-chekin/" rel="alternate" type="text/html"/><updated>2021-01-09T09:33:19Z</updated><published>2021-01-09T07:30:25Z</published><description>开始会打开各app、网站，后面停了就懒得继续，手动太累。签到升级，获得更多的权限。简单介绍下相关工具。 qiandao 17年注册，中间邮箱一直提示签到失败</description><content type="html"><![CDATA[
         <p>开始会打开各app、网站，后面停了就懒得继续，手动太累。签到升级，获得更多的权限。简单介绍下相关工具。</p>
 <h2 id="qiandao">qiandao</h2>
 <p>17年注册，中间邮箱一直提示签到失败，全停。后面发现可以自己添加网站签到，重新使用。有的模板已经无法使用。可能chrome版本问题，现在用cookies获取工具（已运行）老是一串代码，无法删除。只能修改变量，手动填写。</p>
