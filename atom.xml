@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en-US"><title>ywy</title><id>https://ywycd.github.io/</id><description>Recent content on ywy</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><updated>2021-01-16T10:13:39Z</updated><link href="https://ywycd.github.io/atom.xml" rel="self" type="application/rss+xml"/><entry><title>Chfs设置</title><id>https://ywycd.github.io/post/chfs-advanced/</id><link href="https://ywycd.github.io/post/chfs-advanced/" rel="alternate" type="text/html"/><updated>2021-01-16T10:13:39Z</updated><published>2021-01-16T09:14:23Z</published><description>chfs文件共享服务器 自建网盘支持webdav，NextCloud功能太多。从 N1 docker 镜像分享找到了chfs。docker exec chfs addusr 用户名 密码 权限添</description><content type="html"><![CDATA[
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en-US"><title>ywy</title><id>https://ywycd.github.io/</id><description>Recent content on ywy</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><updated>2021-01-21T08:50:48Z</updated><link href="https://ywycd.github.io/atom.xml" rel="self" type="application/rss+xml"/><entry><title>Chfs设置</title><id>https://ywycd.github.io/post/chfs-advanced/</id><link href="https://ywycd.github.io/post/chfs-advanced/" rel="alternate" type="text/html"/><updated>2021-01-16T10:13:39Z</updated><published>2021-01-16T09:14:23Z</published><description>chfs文件共享服务器 自建网盘支持webdav，NextCloud功能太多。从 N1 docker 镜像分享找到了chfs。docker exec chfs addusr 用户名 密码 权限添</description><content type="html"><![CDATA[
         <p>chfs文件共享服务器</p>
 <p>自建网盘支持webdav，NextCloud功能太多。从
 
@@ -788,8 +788,17 @@ WEB_VAULT_ENABLED=false
 
 <a href="https://www.right.com.cn/forum/thread-529613-1-1.html" >小钢炮挂载</a> 停电后大硬盘无法挂载。搜索了下，去掉openwrt挂载未分配硬盘。按这贴加了sdb分区，在启动加了mount /dev/sdb /mnt/sdb。后续再通电可以直接挂载了。</p>
 
-      ]]></content></entry><entry><title>Nian Tips</title><id>https://ywycd.github.io/post/nian-tips/</id><link href="https://ywycd.github.io/post/nian-tips/" rel="alternate" type="text/html"/><updated>2021-01-07T10:14:33Z</updated><published>2020-11-11T01:43:59Z</published><description>那两篇用户心得已经具体介绍念如何使用这里就不多做重复，主要讲收集到的小技巧或者彩蛋。分部分来讲下。 首页 长按添加记本，可自定义内容，改成你想显</description><content type="html"><![CDATA[
-        <p><del>那两篇用户心得已经具体介绍念如何使用</del>这里就不多做重复，主要讲收集到的小技巧或者彩蛋。分部分来讲下。</p>
+      ]]></content></entry><entry><title>Nian Tips</title><id>https://ywycd.github.io/post/nian-tips/</id><link href="https://ywycd.github.io/post/nian-tips/" rel="alternate" type="text/html"/><updated>2021-01-21T08:50:48Z</updated><published>2020-11-11T01:43:59Z</published><description>那两篇用户心得已经具体介绍念如何使用这里就不多做重复，主要讲收集到的小技巧或者彩蛋。分部分来讲下。由于新版功能增减，介绍的可能被删除/修改，</description><content type="html"><![CDATA[
+        <p><del>那两篇用户心得已经具体介绍念如何使用</del>这里就不多做重复，主要讲收集到的小技巧或者彩蛋。分部分来讲下。由于新版功能增减，介绍的可能被删除/修改，更新不及时。请关注内置的           
+
+
+
+
+
+
+
+
+<a href="https://docs.qq.com/doc/DZkVOelRPbkhUZHJB" >更新说明&amp;功能介绍</a></p>
 <h2 id="首页">首页</h2>
 <p>
 
@@ -808,8 +817,8 @@ WEB_VAULT_ENABLED=false
 长按添加记本，可自定义内容，改成你想显示的。</p>
 <p>双击标准记本可直接新建进展，双击打卡记本直接打卡。打卡、计时支持NFC。</p>
 <p>长按记本可拖动排序。<code>2.6.0</code>及其之后要到第一屏<code>记本排序</code>里修改。</p>
-<p>首页摇一摇随机进展，可添加回应，也会出现添加补录次数。往左滑，显示最近的进展。<code>2.5.1</code>「最近进展」页新增计时、账本、打卡进展。<code>2.7.0</code>可自定义进展项。实验室「首页进展列表-自定义显示范围」，设置各类记本进展是否显示。类似<code>2.7.1</code>更新时段右上角可选择单个记本.</p>
-<p>点击头像，进展滑过x</p>
+<p><del>首页摇一摇随机进展，可添加回应，也会出现添加补录次数。</del> <code>2.7.5</code>改为点击触发，首页双击头像，特定标准记本双击创建按钮。 往左滑，显示最近的进展。<code>2.5.1</code>「最近进展」页新增计时、账本、打卡进展。 <code>2.7.5</code> 可自定义进展项。第三屏设置，设置各类记本进展是否显示。类似<code>2.7.1</code>更新时段右上角可选择单个记本.</p>
+<p><del>点击头像，进展滑过x</del> <code>2.7.5</code>已去除</p>
 <h2 id="记本">记本</h2>
 <p>
 
@@ -851,7 +860,7 @@ WEB_VAULT_ENABLED=false
 <p>常驻通知，可选特定记本。摘抄或补录时可用。补录可用<code>补录进展</code>（<code>2.2.0</code>放宽至每月30次），或者手动修改时间再写。</p>
 <h2 id="同步">同步</h2>
 <p>自动轻备份，在backups目录，只有文本数据。如果不小心清理空间时误删，可手动把 xx.bak 改为 nian.db 放到 nian 文件夹中即可。</p>
-<p>文件夹说明，nian存放图片（默认为剪切，可到实验室关闭）、文本。 nian_audio音频， nian_video视频，插入视频时，最好放到nian_video下，再选择插入。清理空间记得加入白名单。</p>
+<p>文件夹说明，nian存放图片（默认为剪切，可到实验室关闭）、文本。 <del>nian_audio音频， nian_video视频，插入视频时，最好放到nian_video下，再选择插入。清理空间记得加入白名单。</del> 新版已换成系统文件管理，做好备份。</p>
 <p>个人是隔段时间备份，用syncthing同步到家里电脑，上传网盘。<code>2.5.1</code>及其之后无自带备份，需手动压缩备份。</p>
 <p>或者用FolderSync（莴笋_君推荐）同步文件。其他同步工具也可。具体教程可看这里 <a href="https://www.coolapk.com/feed/21594226">https://www.coolapk.com/feed/21594226</a></p>
 <h2 id="更新">更新</h2>
@@ -902,23 +911,27 @@ WEB_VAULT_ENABLED=false
 <a class="post-img-lb" href="https://ywycd.github.io/post/nian-tips/sort.png" data-caption="sort">
     <img src="https://ywycd.github.io/post/nian-tips/sort.png" alt="sort"  />
 </a>
-<del>保存喜欢的歌曲by你瞅瞅你。录制音频保存。移动歌曲到nian_audio文件夹。重命名，如“audio_2020_11_13_09_09”，同时删掉原来的音频。歌词复制到进展即可。</del> 新版已去除录音功能，添加本地音乐，参考Retro Music Player。
-
-
-
-
-
-
-    
-        
-    
-
-
-<a class="post-img-lb" href="https://ywycd.github.io/post/nian-tips/gequ.png" data-caption="gequ">
-    <img src="https://ywycd.github.io/post/nian-tips/gequ.png" alt="gequ"  />
-</a></p>
+<del>保存喜欢的歌曲by你瞅瞅你。录制音频保存。移动歌曲到nian_audio文件夹。重命名，如“audio_2020_11_13_09_09”，同时删掉原来的音频。歌词复制到进展即可。</del> 新版已去除录音功能，添加本地音乐，参考Retro Music Player。</p>
 <p><em>不知不觉也写了这么久</em>。有的功能，比如制卡，用得不多，加上那两篇有说到，就略过。当然也有没发现的，欢迎各位使用nian。如“你瞅瞅你”说的倘使有一个念的展览大会，你会发现每一个都是不一样的。</p>
-<p><code>下载地址</code> <a href="https://www.coolapk.com/apk/sa.nian.so">https://www.coolapk.com/apk/sa.nian.so</a></p>
+<p><code>下载地址</code>  
+
+
+
+
+
+
+
+
+<a href="https://app.mi.com/details?id=sa.nian.so&amp;ref=search" >小米商店</a>  
+
+
+
+
+
+
+
+
+<a href="https://www.coolapk.com/apk/sa.nian.so" >酷安</a></p>
 <p>这里附上nian历史图标。
 
 
