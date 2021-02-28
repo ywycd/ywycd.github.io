@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en-US"><title>ywy</title><id>https://ywycd.github.io/</id><description>Recent content on ywy</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><updated>2021-01-21T08:50:48Z</updated><link href="https://ywycd.github.io/atom.xml" rel="self" type="application/rss+xml"/><entry><title>Chfs设置</title><id>https://ywycd.github.io/post/chfs-advanced/</id><link href="https://ywycd.github.io/post/chfs-advanced/" rel="alternate" type="text/html"/><updated>2021-01-16T10:13:39Z</updated><published>2021-01-16T09:14:23Z</published><description>chfs文件共享服务器 自建网盘支持webdav，NextCloud功能太多。从 N1 docker 镜像分享找到了chfs。docker exec chfs addusr 用户名 密码 权限添</description><content type="html"><![CDATA[
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en-US"><title>ywy</title><id>https://ywycd.github.io/</id><description>Recent content on ywy</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><updated>2021-02-28T11:44:59Z</updated><link href="https://ywycd.github.io/atom.xml" rel="self" type="application/rss+xml"/><entry><title>Chfs设置</title><id>https://ywycd.github.io/post/chfs-advanced/</id><link href="https://ywycd.github.io/post/chfs-advanced/" rel="alternate" type="text/html"/><updated>2021-01-16T10:13:39Z</updated><published>2021-01-16T09:14:23Z</published><description>chfs文件共享服务器 自建网盘支持webdav，NextCloud功能太多。从 N1 docker 镜像分享找到了chfs。docker exec chfs addusr 用户名 密码 权限添</description><content type="html"><![CDATA[
         <p>chfs文件共享服务器</p>
 <p>自建网盘支持webdav，NextCloud功能太多。从
 
@@ -419,37 +419,37 @@ git commit -m <span class="s2">&#34;first commit&#34;</span>
 git push origin main
 </code></pre></div><h2 id="部署action">部署action</h2>
 <p>win无法新建.github文件夹，用git bash mkdir。建立<code>.github/workflows/gh-pages.yml</code>看文档做修改。新建名为ACTIONS_DEPLOY_KEY的Secrets，内容上面生成的私钥。git push后自动生成分支。</p>
-<div class="highlight"><pre class="chroma"><code class="language-yml" data-lang="yml"><span class="k">name</span><span class="p">:</span><span class="w"> </span>github<span class="w"> </span>pages<span class="w">
+<div class="highlight"><pre class="chroma"><code class="language-yml" data-lang="yml"><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">github pages</span><span class="w">
 </span><span class="w">
-</span><span class="w"></span><span class="k">on</span><span class="p">:</span><span class="w">
-</span><span class="w">  </span><span class="k">push</span><span class="p">:</span><span class="w">
-</span><span class="w">    </span><span class="k">branches</span><span class="p">:</span><span class="w">
-</span><span class="w">      </span>- main<span class="w">  
+</span><span class="w"></span><span class="nt">on</span><span class="p">:</span><span class="w">
+</span><span class="w">  </span><span class="nt">push</span><span class="p">:</span><span class="w">
+</span><span class="w">    </span><span class="nt">branches</span><span class="p">:</span><span class="w">
+</span><span class="w">      </span>- <span class="l">main  </span><span class="w">
 </span><span class="w">
-</span><span class="w"></span><span class="k">jobs</span><span class="p">:</span><span class="w">
-</span><span class="w">  </span><span class="k">deploy</span><span class="p">:</span><span class="w">
-</span><span class="w">    </span><span class="k">runs-on</span><span class="p">:</span><span class="w"> </span>ubuntu<span class="m">-18.04</span><span class="w">
-</span><span class="w">    </span><span class="k">steps</span><span class="p">:</span><span class="w">
-</span><span class="w">      </span>- <span class="k">uses</span><span class="p">:</span><span class="w"> </span>actions/checkout@v2<span class="w">
-</span><span class="w">        </span><span class="k">with</span><span class="p">:</span><span class="w">
-</span><span class="w">          </span><span class="k">submodules</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">  
-</span><span class="w">          </span><span class="k">fetch-depth</span><span class="p">:</span><span class="w"> </span><span class="m">0</span><span class="w">    
+</span><span class="w"></span><span class="nt">jobs</span><span class="p">:</span><span class="w">
+</span><span class="w">  </span><span class="nt">deploy</span><span class="p">:</span><span class="w">
+</span><span class="w">    </span><span class="nt">runs-on</span><span class="p">:</span><span class="w"> </span><span class="l">ubuntu-18.04</span><span class="w">
+</span><span class="w">    </span><span class="nt">steps</span><span class="p">:</span><span class="w">
+</span><span class="w">      </span>- <span class="nt">uses</span><span class="p">:</span><span class="w"> </span><span class="l">actions/checkout@v2</span><span class="w">
+</span><span class="w">        </span><span class="nt">with</span><span class="p">:</span><span class="w">
+</span><span class="w">          </span><span class="nt">submodules</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">  
+</span><span class="w">          </span><span class="nt">fetch-depth</span><span class="p">:</span><span class="w"> </span><span class="m">0</span><span class="w">    
 </span><span class="w">
-</span><span class="w">      </span>- <span class="k">name</span><span class="p">:</span><span class="w"> </span>Setup<span class="w"> </span>Hugo<span class="w">
-</span><span class="w">        </span><span class="k">uses</span><span class="p">:</span><span class="w"> </span>peaceiris/actions-hugo@v2<span class="w">
-</span><span class="w">        </span><span class="k">with</span><span class="p">:</span><span class="w">
-</span><span class="w">          </span><span class="k">hugo-version</span><span class="p">:</span><span class="w"> </span><span class="s1">&#39;0.74.3&#39;</span><span class="w">
-</span><span class="w">          </span><span class="k">extended</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+</span><span class="w">      </span>- <span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">Setup Hugo</span><span class="w">
+</span><span class="w">        </span><span class="nt">uses</span><span class="p">:</span><span class="w"> </span><span class="l">peaceiris/actions-hugo@v2</span><span class="w">
+</span><span class="w">        </span><span class="nt">with</span><span class="p">:</span><span class="w">
+</span><span class="w">          </span><span class="nt">hugo-version</span><span class="p">:</span><span class="w"> </span><span class="s1">&#39;0.74.3&#39;</span><span class="w">
+</span><span class="w">          </span><span class="nt">extended</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
 </span><span class="w">
-</span><span class="w">      </span>- <span class="k">name</span><span class="p">:</span><span class="w"> </span>Build<span class="w">
-</span><span class="w">        </span><span class="k">run</span><span class="p">:</span><span class="w"> </span>hugo<span class="w"> </span>--minify<span class="w">
+</span><span class="w">      </span>- <span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">Build</span><span class="w">
+</span><span class="w">        </span><span class="nt">run</span><span class="p">:</span><span class="w"> </span><span class="l">hugo --minify</span><span class="w">
 </span><span class="w">
-</span><span class="w">      </span>- <span class="k">name</span><span class="p">:</span><span class="w"> </span>Deploy<span class="w">
-</span><span class="w">        </span><span class="k">uses</span><span class="p">:</span><span class="w"> </span>peaceiris/actions-gh-pages@v3<span class="w">
-</span><span class="w">        </span><span class="k">with</span><span class="p">:</span><span class="w">
-</span><span class="w">          </span><span class="k">deploy_key</span><span class="p">:</span><span class="w"> </span>${{<span class="w"> </span>secrets.ACTIONS_DEPLOY_KEY<span class="w"> </span>}}<span class="w">
-</span><span class="w">          </span><span class="k">publish_dir</span><span class="p">:</span><span class="w"> </span>./public<span class="w">
-</span><span class="w">          </span><span class="k">commit_message</span><span class="p">:</span><span class="w"> </span>${{<span class="w"> </span>github.event.head_commit.message<span class="w"> </span>}}<span class="w">
+</span><span class="w">      </span>- <span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">Deploy</span><span class="w">
+</span><span class="w">        </span><span class="nt">uses</span><span class="p">:</span><span class="w"> </span><span class="l">peaceiris/actions-gh-pages@v3</span><span class="w">
+</span><span class="w">        </span><span class="nt">with</span><span class="p">:</span><span class="w">
+</span><span class="w">          </span><span class="nt">deploy_key</span><span class="p">:</span><span class="w"> </span><span class="l">${{ secrets.ACTIONS_DEPLOY_KEY }}</span><span class="w">
+</span><span class="w">          </span><span class="nt">publish_dir</span><span class="p">:</span><span class="w"> </span><span class="l">./public</span><span class="w">
+</span><span class="w">          </span><span class="nt">commit_message</span><span class="p">:</span><span class="w"> </span><span class="l">${{ github.event.head_commit.message }}</span><span class="w">
 </span></code></pre></div><h2 id="访问问题">访问问题</h2>
 <p>推送后默认改为gh-pages。访问xx.github.io显示404，以为没加README.md。Settings里GitHub Pages Source下切换分支，可行。<br>
 修改terminal，灯大说的那些用上一些。折腾主题时间大于写博客，还是记录点东西吧。</p>
@@ -788,7 +788,7 @@ WEB_VAULT_ENABLED=false
 
 <a href="https://www.right.com.cn/forum/thread-529613-1-1.html" >小钢炮挂载</a> 停电后大硬盘无法挂载。搜索了下，去掉openwrt挂载未分配硬盘。按这贴加了sdb分区，在启动加了mount /dev/sdb /mnt/sdb。后续再通电可以直接挂载了。</p>
 
-      ]]></content></entry><entry><title>Nian Tips</title><id>https://ywycd.github.io/post/nian-tips/</id><link href="https://ywycd.github.io/post/nian-tips/" rel="alternate" type="text/html"/><updated>2021-01-21T08:50:48Z</updated><published>2020-11-11T01:43:59Z</published><description>那两篇用户心得已经具体介绍念如何使用这里就不多做重复，主要讲收集到的小技巧或者彩蛋。分部分来讲下。由于新版功能增减，介绍的可能被删除/修改，</description><content type="html"><![CDATA[
+      ]]></content></entry><entry><title>Nian Tips</title><id>https://ywycd.github.io/post/nian-tips/</id><link href="https://ywycd.github.io/post/nian-tips/" rel="alternate" type="text/html"/><updated>2021-02-28T11:44:59Z</updated><published>2020-11-11T01:43:59Z</published><description>那两篇用户心得已经具体介绍念如何使用这里就不多做重复，主要讲收集到的小技巧或者彩蛋。分部分来讲下。由于新版功能增减，介绍的可能被删除/修改，</description><content type="html"><![CDATA[
         <p><del>那两篇用户心得已经具体介绍念如何使用</del>这里就不多做重复，主要讲收集到的小技巧或者彩蛋。分部分来讲下。由于新版功能增减，介绍的可能被删除/修改，更新不及时。请关注内置的           
 
 
@@ -1013,7 +1013,7 @@ echo 'theme = &quot;terminal&quot;' &gt;&gt; config.toml
 <h2 id="中文乱码">中文乱码</h2>
 <p>md编码改为utf-8。</p>
 <h2 id="其他">其他</h2>
-<p>默认tags = [&quot;&rdquo;, &ldquo;&quot;]
+<p>默认tags = [&quot;&quot;, &ldquo;&quot;]
 config.toml 加了<code>[taxonomies]</code>，要用tags: (换行)-
 centerTheme = true 主题居中显示。
 后面发现灯大修改是在tty3分支。进terminal用<code>git checkout ttys3</code>切换，git pull发现已经最新。首页终于出现图片。
@@ -1091,23 +1091,23 @@ SSH 连接服务，输入</p>
 <h2 id="配置文件准备">配置文件准备</h2>
 <h3 id="docker-composeyml">docker-compose.yml</h3>
 <p>启动clash</p>
-<div class="highlight"><pre class="chroma"><code class="language-yml" data-lang="yml"><span class="w">    </span><span class="k">version</span><span class="p">:</span><span class="w"> </span><span class="s1">&#39;3.4&#39;</span><span class="w">
-</span><span class="w">    </span><span class="k">services</span><span class="p">:</span><span class="w">
-</span><span class="w">      </span><span class="k">clash</span><span class="p">:</span><span class="w">
-</span><span class="w">        </span><span class="k">image</span><span class="p">:</span><span class="w"> </span>dreamacro/clash<span class="p">:</span>latest-arm64v8<span class="w">
-</span><span class="w">        </span><span class="k">volumes</span><span class="p">:</span><span class="w">
-</span><span class="w">          </span>- ./config.yaml<span class="p">:</span>/root/.config/clash/config.yaml<span class="w">
-</span><span class="w">          </span>- ./dashboard<span class="p">:</span>/ui<span class="w">
-</span><span class="w">        </span><span class="k">ports</span><span class="p">:</span><span class="w">
+<div class="highlight"><pre class="chroma"><code class="language-yml" data-lang="yml"><span class="w">    </span><span class="nt">version</span><span class="p">:</span><span class="w"> </span><span class="s1">&#39;3.4&#39;</span><span class="w">
+</span><span class="w">    </span><span class="nt">services</span><span class="p">:</span><span class="w">
+</span><span class="w">      </span><span class="nt">clash</span><span class="p">:</span><span class="w">
+</span><span class="w">        </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l">dreamacro/clash:latest-arm64v8</span><span class="w">
+</span><span class="w">        </span><span class="nt">volumes</span><span class="p">:</span><span class="w">
+</span><span class="w">          </span>- <span class="l">./config.yaml:/root/.config/clash/config.yaml</span><span class="w">
+</span><span class="w">          </span>- <span class="l">./dashboard:/ui</span><span class="w">
+</span><span class="w">        </span><span class="nt">ports</span><span class="p">:</span><span class="w">
 </span><span class="w">          </span>- <span class="s2">&#34;7890:7890&#34;</span><span class="w">
 </span><span class="w">          </span>- <span class="s2">&#34;7891:7891&#34;</span><span class="w">
 </span><span class="w">          </span>- <span class="s2">&#34;7892:7892&#34;</span><span class="w">
 </span><span class="w">          </span>- <span class="s2">&#34;9090:9090&#34;</span><span class="w">
 </span><span class="w">          </span>- <span class="s2">&#34;1053:1053&#34;</span><span class="w">
-</span><span class="w">        </span><span class="k">restart</span><span class="p">:</span><span class="w"> </span>always<span class="w">
+</span><span class="w">        </span><span class="nt">restart</span><span class="p">:</span><span class="w"> </span><span class="l">always</span><span class="w">
 </span><span class="w">        </span><span class="c"># When your system is Linux, you can use `network_mode: &#34;host&#34;` directly.</span><span class="w">
-</span><span class="w">        </span><span class="k">network_mode</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;host&#34;</span><span class="w">
-</span><span class="w">        </span><span class="k">container_name</span><span class="p">:</span><span class="w"> </span>clash<span class="w">
+</span><span class="w">        </span><span class="nt">network_mode</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;host&#34;</span><span class="w">
+</span><span class="w">        </span><span class="nt">container_name</span><span class="p">:</span><span class="w"> </span><span class="l">clash</span><span class="w">
 </span></code></pre></div><p>9090是web ui端口。1053 dns端口，小钢炮53端口被占。<code>volumes:- ./dashboard:/ui</code> /宿主机路径:/容器路径，开始这里不明白，错了好几回。
 UI有两种
 
@@ -1149,10 +1149,10 @@ UI有两种
 
 
 <a href="https://gist.githubusercontent.com/lddsb/b041bb03a8c1295a77d00a5235636ec1/raw/21f0731f40fd53f7b47ad6e45f17f15c811f6b3e/config.yml" >示例</a></p>
-<div class="highlight"><pre class="chroma"><code class="language-yml" data-lang="yml"><span class="w">    </span><span class="k">port</span><span class="p">:</span><span class="w"> </span><span class="m">7890</span><span class="w">
-</span><span class="w">    </span><span class="k">socks-port</span><span class="p">:</span><span class="w"> </span><span class="m">7891</span><span class="w">
-</span><span class="w">    </span><span class="k">allow-lan</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
-</span><span class="w">    </span><span class="k">external-controller</span><span class="p">:</span><span class="w"> </span><span class="m">0.0.0.0</span><span class="p">:</span><span class="m">8080</span><span class="w">
+<div class="highlight"><pre class="chroma"><code class="language-yml" data-lang="yml"><span class="w">    </span><span class="nt">port</span><span class="p">:</span><span class="w"> </span><span class="m">7890</span><span class="w">
+</span><span class="w">    </span><span class="nt">socks-port</span><span class="p">:</span><span class="w"> </span><span class="m">7891</span><span class="w">
+</span><span class="w">    </span><span class="nt">allow-lan</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+</span><span class="w">    </span><span class="nt">external-controller</span><span class="p">:</span><span class="w"> </span><span class="m">0.0.0.0</span><span class="p">:</span><span class="m">8080</span><span class="w">
 </span></code></pre></div><p>照搬openclash设定，订阅转换参考
 
 
@@ -1243,8 +1243,8 @@ tls://1.1.1.1
 https://gitee.com/banbendalao/adguard/raw/master/ADgk.txt
 https://gitee.com/privacy-protection-tools/anti-ad/raw/master/easylist.txt
 </code></pre></div><p>修改AdGuardHome.yaml里的</p>
-<div class="highlight"><pre class="chroma"><code class="language-yml" data-lang="yml"><span class="w">  </span><span class="k">blocked_response_ttl</span><span class="p">:</span><span class="w"> </span><span class="m">60</span><span class="w">
-</span><span class="w">  </span><span class="k">ratelimit</span><span class="p">:</span><span class="w"> </span><span class="m">0</span><span class="w">
+<div class="highlight"><pre class="chroma"><code class="language-yml" data-lang="yml"><span class="w">  </span><span class="nt">blocked_response_ttl</span><span class="p">:</span><span class="w"> </span><span class="m">60</span><span class="w">
+</span><span class="w">  </span><span class="nt">ratelimit</span><span class="p">:</span><span class="w"> </span><span class="m">0</span><span class="w">
 </span></code></pre></div><p>重启容器</p>
 <h2 id="忘记密码">忘记密码</h2>
 <p>
@@ -1260,9 +1260,9 @@ https://gitee.com/privacy-protection-tools/anti-ad/raw/master/easylist.txt
 使用htpasswd生成加密密码，linux用下面命令。输出结果是<code>&lt;USERNAME&gt;:&lt;HASH&gt;</code></p>
 <p><code> htpasswd -B -n -b &lt;USERNAME&gt; &lt;PASSWORD&gt;</code>
 编辑AdGuardHome.yaml，替换相应内容。</p>
-<div class="highlight"><pre class="chroma"><code class="language-yml" data-lang="yml"><span class="w">     </span><span class="k">users</span><span class="p">:</span><span class="w">
-</span><span class="w">     </span>- <span class="k">name</span><span class="p">:</span><span class="w"> </span>...<span class="w">
-</span><span class="w">     </span><span class="k">password</span><span class="p">:</span><span class="w"> </span>&lt;HASH&gt;<span class="w">
+<div class="highlight"><pre class="chroma"><code class="language-yml" data-lang="yml"><span class="w">     </span><span class="nt">users</span><span class="p">:</span><span class="w">
+</span><span class="w">     </span>- <span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">...</span><span class="w">
+</span><span class="w">     </span><span class="nt">password</span><span class="p">:</span><span class="w"> </span><span class="l">&lt;HASH&gt;</span><span class="w">
 </span></code></pre></div><p>开始使用<code>&lt;USERNAME&gt; &lt;PASSWORD&gt;</code>，发现登陆不上。termux用&lt;&gt;错误，改成[]生成。window提示语法错误。
 注意到<code>password: &lt;HASH&gt;</code>，灵感一来不加括号，登陆成功。&lt;&gt;应该是提示可修改。</p>
 
