@@ -8,7 +8,7 @@ enableGitInfo = true
 [params]
   contentTypeName = "post"
   themeColor = "orange"
-  showMenuItems = 2
+  showMenuItems = 3
   fullWidthTheme = false
   centerTheme = true
   authorName = "ywy"
@@ -18,6 +18,9 @@ enableGitInfo = true
   toc = true
 
   statusBadge = ""
+  
+  utterancesRepo = "ywycd/ywycd.github.io"
+  utterancesTheme = "preferred-color-scheme"
 
 [languages]
   [languages.en]
@@ -58,5 +61,3 @@ baseName = "atom"
 [markup.highlight]
   noClasses = false
   
-[outputs]
-  home = ["HTML", "RSS", "JSON"]

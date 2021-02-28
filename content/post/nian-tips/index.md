@@ -3,6 +3,7 @@ title: "Nian Tips"
 tags: ["nian"]
 date: 2020-11-11T09:43:59+08:00
 draft: false
+comments: true
 ---
   ~~那两篇用户心得已经具体介绍念如何使用~~这里就不多做重复，主要讲收集到的小技巧或者彩蛋。分部分来讲下。由于新版功能增减，介绍的可能被删除/修改，更新不及时。请关注内置的           [更新说明&功能介绍](https://docs.qq.com/doc/DZkVOelRPbkhUZHJB)   
 

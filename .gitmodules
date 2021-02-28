@@ -1,0 +1,4 @@
+[submodule "themes/terminal"]
+	path = themes/terminal
+	url = https://github.com/ttys3/hugo-theme-terminal.git
+	branch = ttys3
