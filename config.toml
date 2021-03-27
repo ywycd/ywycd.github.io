@@ -61,3 +61,5 @@ baseName = "atom"
 [markup.highlight]
   noClasses = false
   
+[outputs]
+  home = ["HTML", "RSS", "JSON"]
