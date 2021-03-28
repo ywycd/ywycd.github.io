@@ -1,13 +1,116 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en-US"><title>ywy</title><id>https://ywycd.github.io/</id><description>Recent content on ywy</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><updated>2021-03-27T12:18:34Z</updated><link href="https://ywycd.github.io/atom.xml" rel="self" type="application/rss+xml"/><entry><title>Termux笔记</title><id>https://ywycd.github.io/post/termux-note/</id><link href="https://ywycd.github.io/post/termux-note/" rel="alternate" type="text/html"/><updated>2021-03-27T12:18:34Z</updated><published>2021-03-27T07:55:42Z</published><description>前言 Termux是An­droid终端模拟器，手机下载安装打开即可。支持 apt 、pkg软件包管理，而且完美支持 Python 、 PHP 、 Ruby 、 Go 、 Nodejs 、MySQL 等工</description><content type="html"><![CDATA[
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en-US"><title>ywy</title><id>https://ywycd.github.io/</id><description>Recent content on ywy</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><updated>2021-03-28T06:36:08Z</updated><link href="https://ywycd.github.io/atom.xml" rel="self" type="application/rss+xml"/><entry><title>托管在Netlify的博客更改记录</title><id>https://ywycd.github.io/post/netlify-some-changes/</id><link href="https://ywycd.github.io/post/netlify-some-changes/" rel="alternate" type="text/html"/><updated>2021-03-28T06:36:08Z</updated><published>2021-03-28T02:55:31Z</published><description>切换Git分支 切换为 main 两边博客分支不同，看灯大博客可以修改分支，开始操作。 git checkout master git branch -m main # 删除本地分支 git branch -d master # 删除远程分支 git push origin …</description><content type="html"><![CDATA[
+        <h2 id="切换git分支">切换Git分支</h2>
+<h3 id="切换为-main">切换为 main</h3>
+<p>两边博客分支不同，看灯大博客可以修改分支，开始操作。</p>
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">git checkout master
+
+git branch -m main
+
+<span class="c1"># 删除本地分支</span>
+git branch -d master
+
+<span class="c1"># 删除远程分支</span>
+git push origin --delete master
+
+<span class="c1"># （并不是真正想push, 只是隐式地将远程分支设置为了跟踪main)</span>
+git push origin -u main
+
+</code></pre></div><h3 id="网站配置">网站配置</h3>
+<p>在 Github repo 设置 -&gt; Branches 里, 将默认分支设置为 main。</p>
+<p>Netlify Build 设置里将默认分支设置成 main。</p>
+<h2 id="集成-netlify-cms">集成 Netlify CMS</h2>
+<h3 id="相关介绍">相关介绍</h3>
+<p>Netlify CMS 主要是解决了，随时随地打开浏览器写markdown博客的问题，同时它自动处理了图片上传等问题。编辑器可以在富文本（所见即所得）和 Markdown 方式之间切换，Markdown模式没有语法高亮显示。</p>
+<blockquote>
+<p>Netlify CMS = web 版的 markdown 文件管理器 + 自动图片上传并插入markdown代码 + 在web浏览器写markdown并自动推送到git仓库构建 ….</p>
+</blockquote>
+<h3 id="部署方法">部署方法</h3>
+<p>在<code>static</code> 目录下新建<code>admin</code>目录，里面放一个<code>index.html</code> 文件作为后台管理的入口。
+<code>static/admin/index.html</code> 内容如下：</p>
+<div class="highlight"><pre class="chroma"><code class="language-html" data-lang="html"><span class="cp">&lt;!doctype html&gt;</span>
+<span class="p">&lt;</span><span class="nt">html</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">head</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">meta</span> <span class="na">charset</span><span class="o">=</span><span class="s">&#34;utf-8&#34;</span> <span class="p">/&gt;</span>
+  <span class="p">&lt;</span><span class="nt">meta</span> <span class="na">name</span><span class="o">=</span><span class="s">&#34;viewport&#34;</span> <span class="na">content</span><span class="o">=</span><span class="s">&#34;width=device-width, initial-scale=1.0&#34;</span> <span class="p">/&gt;</span>
+  <span class="p">&lt;</span><span class="nt">title</span><span class="p">&gt;</span>Blog Manager<span class="p">&lt;/</span><span class="nt">title</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">script</span> <span class="na">src</span><span class="o">=</span><span class="s">&#34;https://identity.netlify.com/v1/netlify-identity-widget.js&#34;</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">head</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">body</span><span class="p">&gt;</span>
+  <span class="c">&lt;!-- Include the script that builds the page and powers Netlify CMS --&gt;</span>
+  <span class="c">&lt;!-- https://www.jsdelivr.com/package/npm/netlify-cms --&gt;</span>
+  <span class="p">&lt;</span><span class="nt">script</span> <span class="na">src</span><span class="o">=</span><span class="s">&#34;https://cdn.jsdelivr.net/npm/netlify-cms@2.10.96/dist/netlify-cms.min.js&#34;</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+
+<span class="p">&lt;/</span><span class="nt">body</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">html</span><span class="p">&gt;</span>
+</code></pre></div><p><code>static/admin/config.yml</code> 内容如下：</p>
+<div class="highlight"><pre class="chroma"><code class="language-yml" data-lang="yml"><span class="c"># https://www.netlifycms.org/docs/add-to-your-site/</span><span class="w">
+</span><span class="w"></span><span class="nt">backend</span><span class="p">:</span><span class="w">
+</span><span class="w">  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">git-gateway</span><span class="w">
+</span><span class="w">  </span><span class="nt">branch</span><span class="p">:</span><span class="w"> </span><span class="l">main</span><span class="w"> </span><span class="c"># Branch to update (optional; defaults to master)</span><span class="w">
+</span><span class="w">  </span><span class="nt">squash_merges</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w"> </span><span class="c"># beta feature</span><span class="w">
+</span><span class="w">
+</span><span class="w"> </span><span class="c"># when using the default proxy server port</span><span class="w">
+</span><span class="w"> </span><span class="c"># Run npx netlify-cms-proxy-server from the root dir of the repo</span><span class="w">
+</span><span class="w"></span><span class="nt">local_backend</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+</span><span class="w">
+</span><span class="w"></span><span class="c"># 编辑工作流程</span><span class="w">
+</span><span class="w"></span><span class="nt">publish_mode</span><span class="p">:</span><span class="w"> </span><span class="l">editorial_workflow</span><span class="w">
+</span><span class="w">
+</span><span class="w">
+</span><span class="w"></span><span class="c"># 全局静态文件上传目录</span><span class="w">
+</span><span class="w"></span><span class="nt">media_folder</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;static/img/uploads&#34;</span><span class="w"> </span><span class="c"># Media files will be stored in the repo under images/uploads</span><span class="w">
+</span><span class="w"></span><span class="nt">public_folder</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;/img/uploads&#34;</span><span class="w"> </span><span class="c"># The src attribute for uploaded media will begin with /images/uploads</span><span class="w">
+</span><span class="w">
+</span><span class="w"></span><span class="nt">media_folder_relative</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+</span><span class="w">
+</span><span class="w">
+</span><span class="w"></span><span class="nt">collections</span><span class="p">:</span><span class="w">
+</span><span class="w">  </span>- <span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;post&#34;</span><span class="w"> </span><span class="c"># Used in routes, e.g., /admin/collections/blog</span><span class="w">
+</span><span class="w">    </span><span class="nt">label</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;Post&#34;</span><span class="w"> </span><span class="c"># Used in the UI</span><span class="w">
+</span><span class="w">    </span><span class="nt">folder</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;content/post&#34;</span><span class="w"> </span><span class="c"># The path to the folder where the documents are stored</span><span class="w">
+</span><span class="w">    </span><span class="nt">path</span><span class="p">:</span><span class="w"> </span><span class="s1">&#39;{{slug}}/index&#39;</span><span class="w"> </span><span class="c"># beta feature</span><span class="w">
+</span><span class="w">    </span><span class="nt">media_folder</span><span class="p">:</span><span class="w"> </span><span class="s1">&#39;&#39;</span><span class="w">
+</span><span class="w">    </span><span class="nt">public_folder</span><span class="p">:</span><span class="w"> </span><span class="s1">&#39;&#39;</span><span class="w">
+</span><span class="w">    </span><span class="c"># adding a nested object will show the collection folder structure</span><span class="w">
+</span><span class="w">    </span><span class="nt">nested</span><span class="p">:</span><span class="w">
+</span><span class="w">      </span><span class="nt">depth</span><span class="p">:</span><span class="w"> </span><span class="m">100</span><span class="w"> </span><span class="c"># max depth to show in the collection tree</span><span class="w">
+</span><span class="w">      </span><span class="nt">summary</span><span class="p">:</span><span class="w"> </span><span class="s1">&#39;{{title}}&#39;</span><span class="w"> </span><span class="c"># optional summary for a tree node, defaults to the inferred title field</span><span class="w">
+</span><span class="w">    </span><span class="c"># adding a meta object with a path property allows editing the path of entries</span><span class="w">
+</span><span class="w">    </span><span class="c"># moving an existing entry will move the entire sub tree of the entry to the new location</span><span class="w">
+</span><span class="w">    </span><span class="nt">meta</span><span class="p">:</span><span class="w"> </span>{<span class="w"> </span><span class="nt">path</span><span class="p">:</span><span class="w"> </span>{<span class="w"> </span><span class="nt">widget: string, label: &#39;Path&#39;, index_file: &#39;index&#39;, hint</span><span class="p">:</span><span class="w"> </span><span class="s1">&#39;markdown文件路径, 对于page bundle, 如 &#34;一级目录/二级目录/page-bundle目录/index.md&#34;, 只需要填写 &#34;一级目录/二级目录/page-bundle目录&#34;,不
+</span><span class="s1">要忘记填写page-bundle目录&#39;</span><span class="w"> </span>}<span class="w"> </span>}<span class="w">
+</span><span class="w">    </span><span class="nt">create</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w"> </span><span class="c"># Allow users to create new documents in this collection</span><span class="w">
+</span><span class="w">    </span><span class="nt">slug</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;{{year}}-{{month}}-{{day}}-{{slug}}&#34;</span><span class="w"> </span><span class="c"># Filename template, e.g., YYYY-MM-DD-title.md</span><span class="w">
+</span><span class="w">    </span><span class="nt">fields</span><span class="p">:</span><span class="w"> </span><span class="c"># The fields for each document, usually in front matter</span><span class="w">
+</span><span class="w">      </span>- {<span class="nt">label</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;Title&#34;</span><span class="nt">, name</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;title&#34;</span><span class="nt">, widget</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;string&#34;</span><span class="nt">, hint</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;文章标题&#34;</span>}<span class="w">
+</span><span class="w">      </span>- {<span class="nt">label</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;Slug&#34;</span><span class="nt">, name</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;slug&#34;</span><span class="nt">, widget</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;string&#34;</span><span class="nt">, required: false, hint</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;Slug可以是目录,如 linux/archlinux, 此项会作为路径的功能可能会被 path meta 覆盖&#34;</span>}<span class="w">
+</span><span class="w">      </span>- {<span class="nt">label</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;Draft&#34;</span><span class="nt">, name</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;draft&#34;</span><span class="nt">, widget</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;boolean&#34;</span><span class="nt">, default: true, hint</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;草稿不会 build&#34;</span>}<span class="w">
+</span><span class="w">      </span>- {<span class="nt">label</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;Publish Date&#34;</span><span class="nt">, name</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;date&#34;</span><span class="nt">, widget</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;datetime&#34;</span>}<span class="w">
+</span><span class="w">      </span>- {<span class="nt">label</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;Tags&#34;</span><span class="nt">, name</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;tags&#34;</span><span class="nt">, widget</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;list&#34;</span><span class="nt">, required</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w"> </span><span class="s2">&#34;文章标签，用半角逗号分隔&#34;</span>}<span class="w">
+</span><span class="w">      </span>- {<span class="nt">label</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;Body&#34;</span><span class="nt">, name</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;body&#34;</span><span class="nt">, widget</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;markdown&#34;</span><span class="nt">, hint</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;博客正文&#34;</span>}<span class="w">
+</span></code></pre></div><h3 id="本地git仓库模式">本地Git仓库模式</h3>
+<p>简单启用，只需要在 <code>config.yml</code> 中添加 <code>local_backend: true</code> 即可。 然后 <code>npx netlify-cms-proxy-server</code> 启动 proxy 即可，它默认监听 8081 端口。 然后通过 hugo serve 启动，然后访问 <code>http://localhost:1313/admin/ </code>即可。</p>
+<h3 id="启用cms">启用CMS</h3>
+<p>上面文件创建后，推送到git。点开<code>https://xxx.netlify.app/admin/</code>提示没有<code>Git Gateway</code>。<a href="https://docs.netlify.com/visitor-access/git-gateway/#setup-and-settings">启用git-gateway</a> 介绍，进netlify网页Site settings &gt; Identity, 先<code>enable Identity service</code>。Identity &gt; Services &gt; Git Gateway, 选择<code>Enable Git Gateway</code>，同时生成token。
+<img src="https://i.endpot.com/image/BXLGV/snipaste_20210328_135751.png" alt="snipaste_20210328_135751.png"  />
+再访问<code>https://xxx.netlify.app/admin/</code>注册账号，点击邮箱验证身份(博客地址加token)。但后面登陆时提示未激活。查阅<a href="https://docs.netlify.com/visitor-access/identity/registration-login/#add-identity-users">注册</a> 后在External providers里选了github，授权登陆成功。后面测试邮箱可登陆，再不行可设置无验证。
+<img src="https://i.endpot.com/image/VCV0O/snipaste_20210328_140555.png" alt="snipaste_20210328_140555.png"  />
+<img src="https://i.endpot.com/image/AT1KL/snipaste_20210328_140747.png" alt="snipaste_20210328_140747.png"  />
+这里可查看注册账号，在Roles里可设置管理员权限。
+<img src="https://i.endpot.com/image/JGXWC/snipaste_20210328_141150.png" alt="snipaste_20210328_141150.png"  />
+改为邀请注册，免费只能邀请5人。开放注册1000人，算活跃人数。</p>
+<p><del>使用CMS编辑文章，打字经常字符消失，打不完一整句，切换模式也这样。编辑好保存，是pull requests到仓库，tags格式改变。还是电脑码字发布吧。</del></p>
+
+      ]]></content></entry><entry><title>Termux笔记</title><id>https://ywycd.github.io/post/termux-note/</id><link href="https://ywycd.github.io/post/termux-note/" rel="alternate" type="text/html"/><updated>2021-03-28T06:36:08Z</updated><published>2021-03-27T07:55:42Z</published><description>前言 Termux是An­droid终端模拟器，手机下载安装打开即可。支持 apt、pkg软件包管理，而且完美支持 Python、PHP、Ruby</description><content type="html"><![CDATA[
         <h2 id="前言">前言</h2>
-<p>Termux是An­droid终端模拟器，手机下载安装打开即可。支持 apt 、pkg软件包管理，而且完美支持 Python 、 PHP 、 Ruby 、 Go 、 Nodejs 、MySQL 等工具。你还可以用它安装Linux系统，可以做很多事情。第一次是从酷安下载提示网络问题，看评论区知道酷安版不完整。转去play下载。play插件收费，而在F-Droid商店上免费。后面提到play不再更新，换到F-Droid版本。官方有提供<a href="https://wiki.termux.com/wiki/Backing_up_Termux">备份和恢复</a> 方案。文章根据国光大佬、酷安分享、p3terx教程，自己总结而来。</p>
+<p>Termux是An­droid终端模拟器，手机下载安装打开即可。支持 apt、pkg软件包管理，而且完美支持 Python、PHP、Ruby、Go、Nodejs、MySQL 等工具。你还可以用它安装Linux系统，可以做很多事情。第一次是从酷安下载提示网络问题，看评论区知道酷安版不完整。转去play下载。play插件收费，而在F-Droid商店上免费。后面play不再更新，换到F-Droid版。官方有提供<a href="https://wiki.termux.com/wiki/Backing_up_Termux">备份和恢复</a> 方案。文章根据国光大佬、酷安分享、p3terx教程，自己总结记录。</p>
 <div class="highlight"><pre class="chroma"><code class="language-shell" data-lang="shell">termux-setup-storage
 <span class="nb">cd</span> /data/data/com.termux/files
 <span class="c1"># 备份</span>
 tar -zcvf /sdcard/termux-backup.tar.gz home usr
 <span class="c1"># 恢复</span>
 tar -zxf /sdcard/termux-backup.tar.gz --recursive-unlink --preserve-permissions
-</code></pre></div><p>转移成功，开屏问候语改变。其他基本都没变化。</p>
+</code></pre></div><p>转移成功，开屏问候语改变。其他基本没变化。</p>
 <h2 id="基本操作">基本操作</h2>
 <h3 id="选项和菜单">选项和菜单</h3>
 <p>长按屏幕会调出显示菜单项（包括复制、粘贴、更多），方便我们进行复制或者粘贴。</p>
@@ -24,7 +127,7 @@ tar -zxf /sdcard/termux-backup.tar.gz --recursive-unlink --preserve-permissions
    └── Style:                  <span class="c1"># 风格配色 需要自行安装</span>
    └── Keep screen on:         <span class="c1"># 保持屏幕常亮</span>
    └── Help:                   <span class="c1"># 帮助文档</span>
-</code></pre></div><p>左侧屏幕向右滑出来导航栏，可选弹出键盘，新建/切换会话(ses­sion) 。通知栏会显示有多少会话。</p>
+</code></pre></div><p>左侧屏幕向右滑出来导航栏，可选收起/弹出键盘，新建/切换会话(ses­sion) 。通知栏会显示有多少会话。</p>
 <p><img src="https://image.3001.net/images/20200418/15872022029549.png" alt=""  /></p>
 <h3 id="常用快捷">常用快捷</h3>
 <p><code>音量减</code>模拟 <code>Ctrl</code> 键。下面列一些常用的按键。</p>
@@ -36,7 +139,7 @@ tar -zxf /sdcard/termux-backup.tar.gz --recursive-unlink --preserve-permissions
 <li><code>Ctrl + K</code> -&gt; 从光标删除到行尾</li>
 <li><code>Ctrl + U</code> -&gt; 从光标删除到行首</li>
 <li><code>Ctrl + L</code> -&gt; 相当于<code>clear</code>命令，清屏</li>
-<li><strong><code>Ctrl</code>+<code>Z</code></strong> -&gt; 挂起（发送 SIGTSTP 到）当前进程</li>
+<li><code>Ctrl + Z</code> -&gt; 挂起（发送 SIGTSTP 到）当前进程</li>
 </ul>
 <p><code>音量加</code>也可以作为产生特定输入的<code>特殊键</code>.</p>
 <ul>
@@ -46,13 +149,14 @@ tar -zxf /sdcard/termux-backup.tar.gz --recursive-unlink --preserve-permissions
 <li><code>音量加 + 0</code> -&gt; F10</li>
 </ul>
 <h3 id="定制常用按键">定制常用按键</h3>
-<p>我们可以通过 <code>~/.termux/termux.properties</code> 文件来定制我们的常用功能按键。默认不存在，先创建这个文件。当时刚下载看了教程，自己设置（已创建文件）失败卸载。后面安装借用酷安NibaZShab配置好的when，成功设置按键、安装fish终端、screenfetch等。后续有修改，博客做个记录。
+<p>我们可以通过 <code>~/.termux/termux.properties</code> 文件来进行定制。默认不存在，先创建这个文件。当时刚下载自己设置（看了教程，已创建目录）失败后卸载。后面安装借用酷安NibaZShab配置好的when，成功设置按键、安装fish终端、screenfetch等。后续有修改，博客做个记录。
 自用按键表</p>
 <div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">extra-keys <span class="o">=</span> <span class="o">[</span> <span class="se">\ </span><span class="o">[</span><span class="s1">&#39;ESC&#39;</span>,<span class="s1">&#39;|&#39;</span>,<span class="s1">&#39;/&#39;</span>,<span class="s1">&#39;PGUP&#39;</span>,<span class="s1">&#39;UP&#39;</span>,<span class="s1">&#39;PDDN&#39;</span>,<span class="s1">&#39;END&#39;</span><span class="o">]</span>, <span class="se">\ </span><span class="o">[</span><span class="s1">&#39;TAB&#39;</span>,<span class="s1">&#39;CTRL&#39;</span>,<span class="s1">&#39;ALT&#39;</span>,<span class="s1">&#39;LEFT&#39;</span>,<span class="s1">&#39;DOWN&#39;</span>,<span class="s1">&#39;RIGHT&#39;</span>,<span class="s1">&#39;ENTER&#39;</span><span class="o">]</span> <span class="se">\ </span><span class="o">]</span>
 
-</code></pre></div><h3 id="基本命令">基本命令</h3>
-<p>Termux 除了支持 <code>apt</code> 命令外，还在此基础上封装了<code>pkg</code>命令，<code>pkg</code> 命令向下兼容 <code>apt</code> 命令。</p>
-<p>pkg命令如下。官方建议使用 <code>pkg</code> 命令，因为它会在安装或升级包时会自动更新 apt 列表，也就是说执行 <code>pkg upgrade</code> 相当于执行了 <code>apt update &amp;&amp; apt upgrade</code>，简化了操作流程。</p>
+</code></pre></div><p><img src="http://i.endpot.com/image/A4R0C/IMG_20210328_095759.jpg" alt="IMG_20210328_095759.jpg"  /></p>
+<h3 id="基本命令">基本命令</h3>
+<p>Termux 除了支持 <code>apt</code> 命令外，还在此基础上封装了<code>pkg</code>命令，<code>pkg</code> 命令向下兼容 <code>apt</code> 命令。执行 <code>pkg upgrade</code> 相当于执行了 <code>apt update &amp;&amp; apt upgrade</code>，简化了操作流程。
+pkg命令如下。</p>
 <div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">pkg search &lt;query&gt;              <span class="c1"># 搜索包</span>
 pkg install &lt;package&gt;           <span class="c1"># 安装包</span>
 pkg uninstall &lt;package&gt;         <span class="c1"># 卸载包</span>
@@ -74,13 +178,19 @@ pkg files &lt;package&gt;             <span class="c1"># 显示某个包的相�
 <span class="nb">echo</span> <span class="nv">$PREFIX</span>
 /data/data/com.termux/files/usr
 
-<span class="nb">echo</span> <span class="nv">$TMPPREFIX</span>
+<span class="nb">echo</span> <span class="nv">$TMPDIR</span>
 /data/data/com.termux/files/usr/tmp/
 </code></pre></div><h3 id="root权限">root权限</h3>
-<p>可以利用<code>proot</code>可以为手机没有root的用户来模拟一个root的环境。手机已root，推荐使用tsu，这是一个<code>su</code>的 Termux 版本，是一个真正的root权限，用来在termux上替代<code>su</code>。<code>pkg install tsu -y</code></p>
+<p>可以利用<code>proot</code>可以为手机没有root的用户来模拟一个root的环境。手机已root，推荐使用tsu，<code>pkg install tsu -y</code>。</p>
+<blockquote>
+<p>tsu，这是一个<code>su</code>的 Termux 版本，是一个真正的root权限，用来在termux上替代<code>su</code>。</p>
+</blockquote>
+<h3 id="缩放文本">缩放文本</h3>
+<p>可以使用缩放手势（双指放大缩小）来调整其字体大小。
+<img src="https://image.3001.net/images/20200418/15872024914185.png" alt=""  /></p>
 <h2 id="进阶配置">进阶配置</h2>
 <h3 id="adb连接">adb连接</h3>
-<p>酷安id萌系生物研究员分享，安装adb和fastboot。</p>
+<p>酷安ID萌系生物研究员分享，安装adb和fastboot。</p>
 <div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">pkg update
 pkg i -y git
 <span class="nb">cd</span> ~
@@ -99,18 +209,27 @@ adb devices
 </code></pre></div><p>还不行就三连，重启手机。</p>
 <h3 id="ssh服务">ssh服务</h3>
 <p>同样萌系生物研究员大佬分享的教程。</p>
-<p>安装openssh <code>pkg i -y openssh</code>，进行配置</p>
+<p>安装openssh <code>pkg i -y openssh</code>，进行配置。</p>
 <div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">mkdir -p <span class="nv">$PREFIX</span>/etc/ssh/ <span class="p">;</span> ssh-keygen -f ~/.ssh/id_rsa -t rsa -b <span class="m">4096</span> -N <span class="s1">&#39;&#39;</span> -m PEM <span class="p">;</span> cat ~/.ssh/id_rsa.pub &gt;&gt; ~/.ssh/authorized_keys <span class="p">;</span> chmod -R <span class="m">700</span> ~/.ssh/ <span class="p">;</span> chmod <span class="m">600</span> ~/.ssh/authorized_keys <span class="p">;</span> <span class="nb">echo</span> -e <span class="s2">&#34;port 8022\nPrintMotd yes\nPasswordAuthentication no\nSubsystem sftp /data/data/com.termux/files/usr/libexec/sftp-server\nPubkeyAuthentication yes\nPermitRootLogin yes\nAuthorizedKeysFile .ssh/authorized_keys&#34;</span> &gt; <span class="nv">$PREFIX</span>/etc/ssh/sshd_config <span class="p">;</span> pkill sshd <span class="p">;</span> sshd
 </code></pre></div><p>设置密码，输入<code>passwd</code>进行设置。记得<code>pkill sshd &amp;&amp; sshd</code>重启sshd。</p>
-<p>ssh服务网上还有其他教程，国光大佬教程就有电脑/Termux生成密钥对的不同方法。</p>
+<p>ssh服务网上还有其他教程，国光大佬教程就有电脑/Termux生成密钥的不同方法。</p>
 <p>电脑连接termux，<code>ssh 192.168.x.x -p 8022 -i C:id_rsa</code>。Termux不需要设置用户名。win10cmd连接提示<code>Permissions for C:id_rsa are too open</code> 。<del>chmod 600 id_rsa复制到电脑失败，换成400也一样。</del></p>
-<h3 id="sftp">sftp</h3>
-<p>一般情况下，开启sshd就会顺带帮你开sftp服务，方便管理termux的内部文件。另外下载termux:api，跟termux对应商店下载，不要混用。装完termux:api的apk后，还需要输<code>pkg i -y termux-api ; cat ~/.ssh/id_rsa | termux-clipboard-set</code>，这时候它会自动把私钥文本复制到剪切板。termux:api的其他方法国光的教程里有详细说明。termux其他插件，boot开机启动，widge桌面小部件etc。</p>
-<p>打开solid explorer或其他支持sftp的文件管理器，新建云连接，选择sftp。远l程主机名localhost,端口8022。验证方式选SSH私钥，用户名乱填，最后粘贴刚才自动复制的内容。可以连接，实际路径<code>/data/data/com.termux/files/home</code>。</p>
-<p>可以用termux建立软链接。比如新建QQ下载，这样可以<code>home</code>目录下去访问QQ文件夹。
-<code>ln -s /data/data/com.termux/files/home/storage/shared/tencent/QQfile_recv QQ</code>。删除软链接，用<code>unlink</code>命令。测试<code>unlink QQ</code>可删除。</p>
+<h3 id="传输文件">传输文件</h3>
+<p>可以使用SSH自带的scp命令进行文件传输。</p>
+<p>复制文件</p>
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash"><span class="c1"># scp 本地文件路径 远程主机用户名@远程主机名或IP:远程文件保存的位置路径</span>
+scp local_file remote_username@remote_ip:remote_folder
+</code></pre></div><p>复制目录</p>
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash"><span class="c1"># scp -r 本地文件夹路径 远程主机用户名@远程主机名或IP:远程文件夹保存的位置路径</span>
+scp -r local_folder remote_username@remote_ip:remote_folder
+</code></pre></div><h3 id="sftp">sftp</h3>
+<p>一般情况下，开启sshd就会顺带帮你开sftp服务，方便管理termux的内部文件。另外下载termux:api，跟termux对应商店下载，不要混用。装完termux:api的apk后，还需要输<code>pkg i -y termux-api ; cat ~/.ssh/id_rsa | termux-clipboard-set</code>，这时候它会自动把私钥文本复制到剪切板。termux:api的其他用法国光的教程里有详细说明。termux其他插件，boot开机启动，widge桌面小部件etc。</p>
+<p>打开solid explorer或其他支持sftp的文件管理器，新建云连接，选择sftp。远程主机名localhost,端口8022。验证方式选SSH私钥，用户名乱填，最后粘贴刚才自动复制的内容。实际路径<code>/data/data/com.termux/files/home</code>。</p>
+<p>用termux建立软链接。比如新建QQ下载，这样可以<code>home</code>目录下去访问QQ文件夹。
+<code>ln -s /data/data/com.termux/files/home/storage/shared/tencent/QQfile_recv QQ</code>。删除软链接，用<code>unlink</code>命令。测试<code>unlink QQ</code>可删除。
+<img src="https://image.3001.net/images/20200418/15872085834532.png" alt=""  /></p>
 <h3 id="fish终端alias">fish终端alias</h3>
-<p>照研究员教程加了alias，termux-clipboard-get 获取剪切板内容，termux-clipboard-set 写入剪切板。发现重开就消失。考虑是不是fish要换个路径。查阅资料，发现fish是<a href="https://fishshell.com/docs/current/cmds/alias.html?highlight=alias">function</a> 设置的。tsu看文件有无创建，同样操作切换为普通账户才能成功创建。</p>
+<p>照研究员教程加了alias，termux-clipboard-get 获取剪切板内容，termux-clipboard-set 写入剪切板。发现重进就消失。考虑是不是fish要换路径。查阅资料，发现fish是<a href="https://fishshell.com/docs/current/cmds/alias.html?highlight=alias">function</a> 设置。tsu看文件有无创建，同样操作切换为普通账户才能成功创建。</p>
 <div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash"><span class="nb">alias</span> <span class="nv">get</span><span class="o">=</span><span class="s1">&#39;termux-clipboard-get&#39;</span>
 <span class="c1"># This is equivalent to entering the following function</span>
 <span class="k">function</span> get
@@ -231,7 +350,7 @@ git push origin main
 <p>推送后默认改为gh-pages。访问xx.github.io显示404，以为没加README.md。Settings里GitHub Pages Source下切换分支，可行。<br>
 修改terminal，灯大说的那些用上一些。折腾主题时间大于写博客，还是记录点东西吧。</p>
 
-      ]]></content></entry><entry><title>小钢炮ssh设置密钥登录（免密）</title><id>https://ywycd.github.io/post/ndm-ssh-key/</id><link href="https://ywycd.github.io/post/ndm-ssh-key/" rel="alternate" type="text/html"/><updated>2020-12-19T14:20:32Z</updated><published>2020-12-19T12:19:05Z</published><description>小钢炮设置密钥认证，无需密码。 第一步 生成密钥对 #用dropbearkey生成密钥对 path=/etc/dropbear #生成私钥的地方，可随意填写 dropbearkey -t rsa -f ${path}/key_dropbear -s 2048 #保存公钥到~</description><content type="html"><![CDATA[
+      ]]></content></entry><entry><title>小钢炮ssh设置密钥登录（免密）</title><id>https://ywycd.github.io/post/ndm-ssh-key/</id><link href="https://ywycd.github.io/post/ndm-ssh-key/" rel="alternate" type="text/html"/><updated>2021-03-28T06:36:08Z</updated><published>2020-12-19T12:19:05Z</published><description>小钢炮设置密钥认证，无需密码。 第一步 生成密钥对 #用dropbearkey生成密钥对 path=/etc/dropbear #生成私钥的地方，可随意填写 dropbearkey -t rsa -f ${path}/key_dropbear -s 2048 #保存公钥到~</description><content type="html"><![CDATA[
         <p>小钢炮设置<a href="https://www.jianshu.com/p/0c8c00fb1f79">密钥认证</a>，无需密码。<br>
 <strong>第一步 生成密钥对</strong></p>
 <div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash"><span class="c1">#用dropbearkey生成密钥对</span>
