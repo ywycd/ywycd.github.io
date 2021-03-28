@@ -1,6 +1,7 @@
 ---
 title: "小钢炮ssh设置密钥登录（免密）"
 date: 2020-12-19T20:19:05+08:00
+tags: ["ssh"]
 draft: false
 ---
 小钢炮设置[密钥认证](https://www.jianshu.com/p/0c8c00fb1f79)，无需密码。  
