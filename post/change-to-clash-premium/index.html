@@ -1,0 +1,234 @@
+<!doctype html><html lang=en><head><meta charset=utf-8><meta name=referrer content="same-origin"><title>docker切换为Clash-premium :: ywy — 有约不来过夜半，闲敲棋子落灯花</title><meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1"><meta name=description content="EMBY推荐使用clash tun模式，加上其他原因考虑换成clash-premium。惯例查阅资料，开启tun，结果显示Start Tun interface error: CreateTUN(\&amp;quot;utun\&amp;quot;) failed;"><meta name=keywords content><meta name=robots content="noodp"><link rel=canonical href=https://ywycd.github.io/post/change-to-clash-premium/><link rel=stylesheet href=https://ywycd.github.io/assets/style.min.css?d41d8cd98f00b204e9800998ecf8427e><link rel=apple-touch-icon-precomposed sizes=144x144 href=https://ywycd.github.io/img/favicon/apple-icon-precomposed.png><link rel="shortcut icon" href=https://ywycd.github.io/img/apple-touch-icon-rm.png><meta name=twitter:card content="summary"><meta name=twitter:creator content><meta property="og:locale" content="en"><meta property="og:type" content="article"><meta property="og:title" content="docker切换为Clash-premium :: ywy"><meta property="og:description" content="EMBY推荐使用clash tun模式，加上其他原因考虑换成clash-premium。惯例查阅资料，开启tun，结果显示Start Tun interface error: CreateTUN(\&amp;quot;utun\&amp;quot;) failed;"><meta property="og:url" content="https://ywycd.github.io/post/change-to-clash-premium/"><meta property="og:site_name" content="ywy"><meta property="og:image" content="https://ywycd.github.io/img/apple-touch-icon-rm.png"><meta property="og:image:width" content="2048"><meta property="og:image:height" content="1024"><meta property="article:published_time" content="2021-04-06 12:14:52 +0000 UTC"></head><body><div class="container center headings--one-size"><header class=header style=background-image:url(/img/banner-rain-731313_1920.png);background-position:50%;background-repeat:no-repeat;background-size:cover><div class=header__inner><div class=header__logo><a href=https://ywycd.github.io/><div class=logo>ASDW</div></a></div><div class=menu-trigger>menu</div></div><nav class=menu><ul class="menu__inner menu__inner--desktop"><li><a href=/about>About</a></li><li><a href=/archive>Archive</a></li><li><a href=/tagcloud>TagCloud</a></li></ul><ul class="menu__inner menu__inner--mobile"><li><a href=/about>About</a></li><li><a href=/archive>Archive</a></li><li><a href=/tagcloud>TagCloud</a></li></ul></nav><div class=feed-links></div></header><div class=content><div class=post><h1 class=post-title>docker切换为Clash-premium</h1><div class=post-meta><span class=post-date>2021-04-06</span>
+<span class=post-author>::
+ywy</span>
+:: Mod 2021-04-07(a5fcc59)</div><span class=post-tags>#<a href=https://ywycd.github.io/tags/docker/>docker</a>&nbsp;</span><div class=post-content><div><p>EMBY推荐使用clash tun模式，加上其他原因考虑换成clash-premium。惯例查阅资料，开启tun，结果显示<code>Start Tun interface error: CreateTUN(\"utun\") failed; /dev/net/tun does not exist</code>。另外从
+<a href=https://github.com/comzyh/clash/releases>comzyh</a> 处下载tun内核，改名放到/dev/net/tun，错误。配置.yml里加devices，提示<code>ERROR: for clash Cannot start service clash: linux runtime spec devices: error gathering device information while adding custom device "/dev/net/tun": not a device node</code> 可能需要映射，或者系统运行tun，无奈放弃。</p><p>复制
+<a href=https://zhezhiyu.xyz/archives/94>该博客</a> Premiere版完整配置。由于不是直接订阅clash, <code>proxy-providers</code>改为<code>proxies</code>，其他地方有修改。Premiere支持订阅规则，用RULE-SET。后续发现局域网走代理，加<code>- RULE-SET,lancidr,DIRECT</code>。</p><div class=highlight><pre class=chroma><code class=language-yaml data-lang=yaml><span class=nt>mixed-port</span><span class=p>:</span><span class=w> </span><span class=m>7890</span><span class=w>
+</span><span class=w></span><span class=c>#socks-port: 7891</span><span class=w>
+</span><span class=w></span><span class=nt>redir-port</span><span class=p>:</span><span class=w> </span><span class=m>7892</span><span class=w>
+</span><span class=w></span><span class=c>#authentication:</span><span class=w>
+</span><span class=w></span><span class=c>#- &#34;user1:pw1&#34;</span><span class=w>
+</span><span class=w></span><span class=nt>allow-lan</span><span class=p>:</span><span class=w> </span><span class=kc>true</span><span class=w>
+</span><span class=w></span><span class=nt>bind-address</span><span class=p>:</span><span class=w> </span><span class=s1>&#39;*&#39;</span><span class=w>
+</span><span class=w></span><span class=nt>mode</span><span class=p>:</span><span class=w> </span><span class=l>Rule</span><span class=w>
+</span><span class=w></span><span class=nt>log-level</span><span class=p>:</span><span class=w> </span><span class=l>info</span><span class=w>
+</span><span class=w></span><span class=nt>external-controller</span><span class=p>:</span><span class=w> </span><span class=m>0.0.0.0</span><span class=p>:</span><span class=m>9090</span><span class=w>
+</span><span class=w></span><span class=nt>external-ui</span><span class=p>:</span><span class=w> </span><span class=l>/ui</span><span class=w>
+</span><span class=w></span><span class=nt>secret</span><span class=p>:</span><span class=w> </span><span class=s2>&#34;pw&#34;</span><span class=w>
+</span><span class=w></span><span class=nt>interface-name</span><span class=p>:</span><span class=w> </span><span class=l>eh0</span><span class=w>
+</span><span class=w></span><span class=c>#tun: </span><span class=w>
+</span><span class=w>   </span><span class=c>#enable: true</span><span class=w>
+</span><span class=w>   </span><span class=c>#stack: system # or gvisor</span><span class=w>
+</span><span class=w>   </span><span class=c>#dns-hijack:</span><span class=w>
+</span><span class=w>     </span><span class=c>#- tcp://8.8.8.8:53</span><span class=w>
+</span><span class=w>     </span><span class=c>#- 8.8.8.8:1053</span><span class=w>
+</span><span class=w>   </span><span class=c>#macOS-auto-route: true</span><span class=w>
+</span><span class=w></span><span class=nt>dns</span><span class=p>:</span><span class=w>
+</span><span class=w></span><span class=nt>enable</span><span class=p>:</span><span class=w> </span><span class=kc>true</span><span class=w>
+</span><span class=w></span><span class=nt>ipv6</span><span class=p>:</span><span class=w> </span><span class=kc>false</span><span class=w>
+</span><span class=w></span><span class=nt>listen</span><span class=p>:</span><span class=w> </span><span class=m>0.0.0.0</span><span class=p>:</span><span class=m>1053</span><span class=w>
+</span><span class=w></span><span class=nt>enhanced-mode</span><span class=p>:</span><span class=w> </span><span class=l>redir-host</span><span class=w>
+</span><span class=w></span><span class=nt>nameserver</span><span class=p>:</span><span class=w>
+</span><span class=w>  </span>- <span class=m>114.114.114.114</span><span class=w>
+</span><span class=w>  </span>- <span class=m>119.29.29.29</span><span class=w>
+</span><span class=w>  </span>- <span class=m>223.5.5.5</span><span class=w>
+</span><span class=w>  </span>- <span class=l>tls://dns.rubyfish.cn:853</span><span class=w>
+</span><span class=w></span><span class=nt>fallback</span><span class=p>:</span><span class=w>
+</span><span class=w>  </span>- <span class=l>tls://8.8.8.8:853</span><span class=w>
+</span><span class=w>  </span>- <span class=l>tcp://208.67.222.222:443</span><span class=w>
+</span><span class=w>  </span>- <span class=l>https://doh.pub/dns-query</span><span class=w>
+</span><span class=w>
+</span><span class=w></span><span class=nt>rule-providers</span><span class=p>:</span><span class=w>
+</span><span class=w></span><span class=nt>reject</span><span class=p>:</span><span class=w>
+</span><span class=w></span><span class=c># 拦截域名,可选拦截</span><span class=w>
+</span><span class=w>  </span><span class=nt>type</span><span class=p>:</span><span class=w> </span><span class=l>http</span><span class=w>
+</span><span class=w>  </span><span class=nt>behavior</span><span class=p>:</span><span class=w> </span><span class=l>domain</span><span class=w>
+</span><span class=w>  </span><span class=nt>url</span><span class=p>:</span><span class=w> </span><span class=s2>&#34;https://cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/reject.txt&#34;</span><span class=w>
+</span><span class=w>  </span><span class=nt>path</span><span class=p>:</span><span class=w> </span><span class=l>./ruleset/reject.yaml</span><span class=w>
+</span><span class=w>  </span><span class=nt>interval</span><span class=p>:</span><span class=w> </span><span class=m>86400</span><span class=w>
+</span><span class=w>
+</span><span class=w></span><span class=nt>icloud</span><span class=p>:</span><span class=w>
+</span><span class=w></span><span class=c># iCloud直连域名,建议直连</span><span class=w>
+</span><span class=w>  </span><span class=nt>type</span><span class=p>:</span><span class=w> </span><span class=l>http</span><span class=w>
+</span><span class=w>  </span><span class=nt>behavior</span><span class=p>:</span><span class=w> </span><span class=l>domain</span><span class=w>
+</span><span class=w>  </span><span class=nt>url</span><span class=p>:</span><span class=w> </span><span class=s2>&#34;https://cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/icloud.txt&#34;</span><span class=w>
+</span><span class=w>  </span><span class=nt>path</span><span class=p>:</span><span class=w> </span><span class=l>./ruleset/icloud.yaml</span><span class=w>
+</span><span class=w>  </span><span class=nt>interval</span><span class=p>:</span><span class=w> </span><span class=m>86400</span><span class=w>
+</span><span class=w>
+</span><span class=w></span><span class=nt>apple</span><span class=p>:</span><span class=w>
+</span><span class=w></span><span class=c># 苹果直连域名,建议直连</span><span class=w>
+</span><span class=w>  </span><span class=nt>type</span><span class=p>:</span><span class=w> </span><span class=l>http</span><span class=w>
+</span><span class=w>  </span><span class=nt>behavior</span><span class=p>:</span><span class=w> </span><span class=l>domain</span><span class=w>
+</span><span class=w>  </span><span class=nt>url</span><span class=p>:</span><span class=w> </span><span class=s2>&#34;https://cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/apple.txt&#34;</span><span class=w>
+</span><span class=w>  </span><span class=nt>path</span><span class=p>:</span><span class=w> </span><span class=l>./ruleset/apple.yaml</span><span class=w>
+</span><span class=w>  </span><span class=nt>interval</span><span class=p>:</span><span class=w> </span><span class=m>86400</span><span class=w>
+</span><span class=w>
+</span><span class=w></span><span class=nt>google</span><span class=p>:</span><span class=w>
+</span><span class=w></span><span class=c># 谷歌直连域名,建议直连</span><span class=w>
+</span><span class=w>  </span><span class=nt>type</span><span class=p>:</span><span class=w> </span><span class=l>http</span><span class=w>
+</span><span class=w>  </span><span class=nt>behavior</span><span class=p>:</span><span class=w> </span><span class=l>domain</span><span class=w>
+</span><span class=w>  </span><span class=nt>url</span><span class=p>:</span><span class=w> </span><span class=s2>&#34;https://cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/google.txt&#34;</span><span class=w>
+</span><span class=w>  </span><span class=nt>path</span><span class=p>:</span><span class=w> </span><span class=l>./ruleset/google.yaml</span><span class=w>
+</span><span class=w>  </span><span class=nt>interval</span><span class=p>:</span><span class=w> </span><span class=m>86400</span><span class=w>
+</span><span class=w>
+</span><span class=w></span><span class=nt>proxy</span><span class=p>:</span><span class=w>
+</span><span class=w></span><span class=c># 需要代理的域名</span><span class=w>
+</span><span class=w>  </span><span class=nt>type</span><span class=p>:</span><span class=w> </span><span class=l>http</span><span class=w>
+</span><span class=w>  </span><span class=nt>behavior</span><span class=p>:</span><span class=w> </span><span class=l>domain</span><span class=w>
+</span><span class=w>  </span><span class=nt>url</span><span class=p>:</span><span class=w> </span><span class=s2>&#34;https://cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/proxy.txt&#34;</span><span class=w>
+</span><span class=w>  </span><span class=nt>path</span><span class=p>:</span><span class=w> </span><span class=l>./ruleset/proxy.yaml</span><span class=w>
+</span><span class=w>  </span><span class=nt>interval</span><span class=p>:</span><span class=w> </span><span class=m>86400</span><span class=w>
+</span><span class=w>
+</span><span class=w></span><span class=nt>direct</span><span class=p>:</span><span class=w>
+</span><span class=w></span><span class=c># 直连域名</span><span class=w>
+</span><span class=w>  </span><span class=nt>type</span><span class=p>:</span><span class=w> </span><span class=l>http</span><span class=w>
+</span><span class=w>  </span><span class=nt>behavior</span><span class=p>:</span><span class=w> </span><span class=l>domain</span><span class=w>
+</span><span class=w>  </span><span class=nt>url</span><span class=p>:</span><span class=w> </span><span class=s2>&#34;https://cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/direct.txt&#34;</span><span class=w>
+</span><span class=w>  </span><span class=nt>path</span><span class=p>:</span><span class=w> </span><span class=l>./ruleset/direct.yaml</span><span class=w>
+</span><span class=w>  </span><span class=nt>interval</span><span class=p>:</span><span class=w> </span><span class=m>86400</span><span class=w>
+</span><span class=w>
+</span><span class=w></span><span class=nt>gfw</span><span class=p>:</span><span class=w>
+</span><span class=w></span><span class=c># GFW域名列表</span><span class=w>
+</span><span class=w>  </span><span class=nt>type</span><span class=p>:</span><span class=w> </span><span class=l>http</span><span class=w>
+</span><span class=w>  </span><span class=nt>behavior</span><span class=p>:</span><span class=w> </span><span class=l>domain</span><span class=w>
+</span><span class=w>  </span><span class=nt>url</span><span class=p>:</span><span class=w> </span><span class=s2>&#34;https://cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/gfw.txt&#34;</span><span class=w>
+</span><span class=w>  </span><span class=nt>path</span><span class=p>:</span><span class=w> </span><span class=l>./ruleset/gfw.yaml</span><span class=w>
+</span><span class=w>  </span><span class=nt>interval</span><span class=p>:</span><span class=w> </span><span class=m>86400</span><span class=w>
+</span><span class=w>
+</span><span class=w></span><span class=nt>greatfire</span><span class=p>:</span><span class=w>
+</span><span class=w></span><span class=c># GreatFire域名</span><span class=w>
+</span><span class=w>  </span><span class=nt>type</span><span class=p>:</span><span class=w> </span><span class=l>http</span><span class=w>
+</span><span class=w>  </span><span class=nt>behavior</span><span class=p>:</span><span class=w> </span><span class=l>domain</span><span class=w>
+</span><span class=w>  </span><span class=nt>url</span><span class=p>:</span><span class=w> </span><span class=s2>&#34;https://cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/greatfire.txt&#34;</span><span class=w>
+</span><span class=w>  </span><span class=nt>path</span><span class=p>:</span><span class=w> </span><span class=l>./ruleset/greatfire.yaml</span><span class=w>
+</span><span class=w>  </span><span class=nt>interval</span><span class=p>:</span><span class=w> </span><span class=m>86400</span><span class=w>
+</span><span class=w>
+</span><span class=w></span><span class=nt>tld-not-cn</span><span class=p>:</span><span class=w>
+</span><span class=w></span><span class=c># 非中国大陆使用的顶级域名列表</span><span class=w>
+</span><span class=w>  </span><span class=nt>type</span><span class=p>:</span><span class=w> </span><span class=l>http</span><span class=w>
+</span><span class=w>  </span><span class=nt>behavior</span><span class=p>:</span><span class=w> </span><span class=l>domain</span><span class=w>
+</span><span class=w>  </span><span class=nt>url</span><span class=p>:</span><span class=w> </span><span class=s2>&#34;https://cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/tld-not-cn.txt&#34;</span><span class=w>
+</span><span class=w>  </span><span class=nt>path</span><span class=p>:</span><span class=w> </span><span class=l>./ruleset/tld-not-cn.yaml</span><span class=w>
+</span><span class=w>  </span><span class=nt>interval</span><span class=p>:</span><span class=w> </span><span class=m>86400</span><span class=w>
+</span><span class=w>
+</span><span class=w></span><span class=nt>telegramcidr</span><span class=p>:</span><span class=w>
+</span><span class=w></span><span class=c># TG使用的IP地址</span><span class=w>
+</span><span class=w>  </span><span class=nt>type</span><span class=p>:</span><span class=w> </span><span class=l>http</span><span class=w>
+</span><span class=w>  </span><span class=nt>behavior</span><span class=p>:</span><span class=w> </span><span class=l>ipcidr</span><span class=w>
+</span><span class=w>  </span><span class=nt>url</span><span class=p>:</span><span class=w> </span><span class=s2>&#34;https://cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/telegramcidr.txt&#34;</span><span class=w>
+</span><span class=w>  </span><span class=nt>path</span><span class=p>:</span><span class=w> </span><span class=l>./ruleset/telegramcidr.yaml</span><span class=w>
+</span><span class=w>  </span><span class=nt>interval</span><span class=p>:</span><span class=w> </span><span class=m>86400</span><span class=w>
+</span><span class=w>
+</span><span class=w></span><span class=nt>cncidr</span><span class=p>:</span><span class=w>
+</span><span class=w></span><span class=c># 中国IP段</span><span class=w>
+</span><span class=w>  </span><span class=nt>type</span><span class=p>:</span><span class=w> </span><span class=l>http</span><span class=w>
+</span><span class=w>  </span><span class=nt>behavior</span><span class=p>:</span><span class=w> </span><span class=l>ipcidr</span><span class=w>
+</span><span class=w>  </span><span class=nt>url</span><span class=p>:</span><span class=w> </span><span class=s2>&#34;https://cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/cncidr.txt&#34;</span><span class=w>
+</span><span class=w>  </span><span class=nt>path</span><span class=p>:</span><span class=w> </span><span class=l>./ruleset/cncidr.yaml</span><span class=w>
+</span><span class=w>  </span><span class=nt>interval</span><span class=p>:</span><span class=w> </span><span class=m>86400</span><span class=w>
+</span><span class=w>
+</span><span class=w></span><span class=nt>lancidr</span><span class=p>:</span><span class=w>
+</span><span class=w></span><span class=c># 局域网IP段</span><span class=w>
+</span><span class=w>  </span><span class=nt>type</span><span class=p>:</span><span class=w> </span><span class=l>http</span><span class=w>
+</span><span class=w>  </span><span class=nt>behavior</span><span class=p>:</span><span class=w> </span><span class=l>ipcidr</span><span class=w>
+</span><span class=w>  </span><span class=nt>url</span><span class=p>:</span><span class=w> </span><span class=s2>&#34;https://cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/lancidr.txt&#34;</span><span class=w>
+</span><span class=w>  </span><span class=nt>path</span><span class=p>:</span><span class=w> </span><span class=l>./ruleset/lancidr.yaml</span><span class=w>
+</span><span class=w>  </span><span class=nt>interval</span><span class=p>:</span><span class=w> </span><span class=m>86400</span><span class=w>
+</span><span class=w>
+</span><span class=w></span><span class=nt>proxies</span><span class=p>:</span><span class=w>
+</span><span class=w></span>- <span class=nt>name</span><span class=p>:</span><span class=w> </span><span class=s1>&#39;ss1&#39;</span><span class=w>
+</span><span class=w>  </span><span class=nt>type</span><span class=p>:</span><span class=w> </span><span class=l>ss</span><span class=w>
+</span><span class=w>  </span><span class=nt>server</span><span class=p>:</span><span class=w> </span><span class=s1>&#39;your-server.com&#39;</span><span class=w>
+</span><span class=w>  </span><span class=nt>port</span><span class=p>:</span><span class=w> </span><span class=m>2333</span><span class=w>
+</span><span class=w>  </span><span class=nt>cipher</span><span class=p>:</span><span class=w> </span><span class=l>rc4-md5</span><span class=w>
+</span><span class=w>  </span><span class=nt>password</span><span class=p>:</span><span class=w> </span><span class=s1>&#39;your-password&#39;</span><span class=w>
+</span><span class=w></span>- {<span class=w> </span><span class=nt>name</span><span class=p>:</span><span class=w> </span><span class=s2>&#34;vmess2&#34;</span><span class=nt>, type: vmess, server: server, port: 443, uuid: uuid, alterId: 32, cipher: auto, tls</span><span class=p>:</span><span class=w> </span><span class=kc>true</span><span class=w> </span>}<span class=w> 
+</span><span class=w>
+</span><span class=w></span><span class=nt>proxy-groups</span><span class=p>:</span><span class=w>
+</span><span class=w></span>- <span class=nt>name</span><span class=p>:</span><span class=w> </span><span class=s1>&#39;auto&#39;</span><span class=w>
+</span><span class=w>  </span><span class=nt>type</span><span class=p>:</span><span class=w> </span><span class=l>url-test</span><span class=w>
+</span><span class=w>  </span><span class=nt>proxies</span><span class=p>:</span><span class=w> 
+</span><span class=w>    </span>- <span class=l>ss1</span><span class=w>
+</span><span class=w>    </span>- <span class=l>vmess2</span><span class=w>
+</span><span class=w>  </span><span class=nt>url</span><span class=p>:</span><span class=w> </span><span class=s1>&#39;https://www.gstatic.com/generate_204&#39;</span><span class=w>
+</span><span class=w>  </span><span class=nt>interval</span><span class=p>:</span><span class=w> </span><span class=m>300</span><span class=w>
+</span><span class=w></span>- <span class=nt>name</span><span class=p>:</span><span class=w> </span><span class=s1>&#39;Proxy&#39;</span><span class=w>
+</span><span class=w>  </span><span class=nt>type</span><span class=p>:</span><span class=w> </span><span class=l>select</span><span class=w>
+</span><span class=w>  </span><span class=nt>proxies</span><span class=p>:</span><span class=w> 
+</span><span class=w>    </span>- <span class=l>auto</span><span class=w>
+</span><span class=w>    </span>- <span class=l>ss1</span><span class=w>
+</span><span class=w>    </span>- <span class=l>vmess2</span><span class=w>
+</span><span class=w></span><span class=nt>rules</span><span class=p>:</span><span class=w>
+</span><span class=w></span>- <span class=l>PROCESS-NAME,v2ray,DIRECT</span><span class=w>
+</span><span class=w></span>- <span class=l>PROCESS-NAME,Surge%203,DIRECT</span><span class=w>
+</span><span class=w></span>- <span class=l>PROCESS-NAME,ss-local,DIRECT</span><span class=w>
+</span><span class=w></span>- <span class=l>PROCESS-NAME,privoxy,DIRECT</span><span class=w>
+</span><span class=w></span>- <span class=l>PROCESS-NAME,trojan,DIRECT</span><span class=w>
+</span><span class=w></span>- <span class=l>PROCESS-NAME,trojan-go,DIRECT</span><span class=w>
+</span><span class=w></span>- <span class=l>PROCESS-NAME,naive,DIRECT</span><span class=w>
+</span><span class=w></span>- <span class=l>PROCESS-NAME,Thunder,DIRECT</span><span class=w>
+</span><span class=w></span>- <span class=l>PROCESS-NAME,DownloadService,DIRECT</span><span class=w>
+</span><span class=w></span>- <span class=l>PROCESS-NAME,qBittorrent,DIRECT</span><span class=w>
+</span><span class=w></span>- <span class=l>PROCESS-NAME,Transmission,DIRECT</span><span class=w>
+</span><span class=w></span>- <span class=l>PROCESS-NAME,fdm,DIRECT</span><span class=w>
+</span><span class=w></span>- <span class=l>PROCESS-NAME,aria2c,DIRECT</span><span class=w>
+</span><span class=w></span>- <span class=l>PROCESS-NAME,Folx,DIRECT</span><span class=w>
+</span><span class=w></span>- <span class=l>PROCESS-NAME,NetTransport,DIRECT</span><span class=w>
+</span><span class=w></span>- <span class=l>PROCESS-NAME,uTorrent,DIRECT</span><span class=w>
+</span><span class=w></span>- <span class=l>PROCESS-NAME,WebTorrent,DIRECT</span><span class=w>
+</span><span class=w></span>- <span class=l>DOMAIN,animebytes.tv,DIRECT</span><span class=w>
+</span><span class=w></span>- <span class=l>DOMAIN,clash.razord.top,DIRECT</span><span class=w>
+</span><span class=w></span>- <span class=l>DOMAIN,yacd.haishan.me,DIRECT</span><span class=w>
+</span><span class=w></span>- <span class=l>DOMAIN,embyserver.media,EMBY</span><span class=w>
+</span><span class=w></span>- <span class=l>RULE-SET,reject,🛑 全球拦截</span><span class=w>
+</span><span class=w></span>- <span class=l>RULE-SET,icloud,DIRECT</span><span class=w>
+</span><span class=w></span>- <span class=l>RULE-SET,apple,DIRECT</span><span class=w>
+</span><span class=w></span>- <span class=l>RULE-SET,google,DIRECT</span><span class=w>
+</span><span class=w></span>- <span class=l>RULE-SET,lancidr,DIRECT</span><span class=w>
+</span><span class=w></span>- <span class=l>RULE-SET,proxy,🔰 节点选择</span><span class=w>
+</span><span class=w></span>- <span class=l>RULE-SET,greatfire,🔰 节点选择</span><span class=w>
+</span><span class=w></span>- <span class=l>RULE-SET,gfw,🔰 节点选择</span><span class=w>
+</span><span class=w></span>- <span class=l>RULE-SET,telegramcidr,📲 电报信息</span><span class=w>
+</span><span class=w></span>- <span class=l>RULE-SET,direct,DIRECT</span><span class=w>
+</span><span class=w></span>- <span class=l>GEOIP,CN,DIRECT</span><span class=w>
+</span><span class=w></span>- <span class=l>MATCH,🐟 漏网之鱼</span><span class=w>
+</span></code></pre></div><p><a href=https://github.com/Loyalsoldier/clash-rules>Clash Premium 规则集</a>
+<a href=https://lancellc.gitbook.io/clash/>wiki</a>
+<a href=https://github.com/Dreamacro/clash/wiki>官方wiki</a></p><p>看wiki, 加了h2的vmess节点, 添加成功。</p><div class=highlight><pre class=chroma><code class=language-yaml data-lang=yaml><span class=nt>proxies</span><span class=p>:</span><span class=w>
+</span><span class=w></span>- <span class=nt>name</span><span class=p>:</span><span class=w> </span><span class=s2>&#34;vmess-h2&#34;</span><span class=w>
+</span><span class=w>  </span><span class=nt>type</span><span class=p>:</span><span class=w> </span><span class=l>vmess</span><span class=w>
+</span><span class=w>  </span><span class=nt>server</span><span class=p>:</span><span class=w> </span><span class=l>server</span><span class=w>
+</span><span class=w>  </span><span class=nt>port</span><span class=p>:</span><span class=w> </span><span class=m>443</span><span class=w>
+</span><span class=w>  </span><span class=nt>uuid</span><span class=p>:</span><span class=w> </span><span class=l>uuid</span><span class=w>
+</span><span class=w>  </span><span class=nt>alterId</span><span class=p>:</span><span class=w> </span><span class=m>32</span><span class=w>
+</span><span class=w>  </span><span class=nt>cipher</span><span class=p>:</span><span class=w> </span><span class=l>auto</span><span class=w>
+</span><span class=w>  </span><span class=nt>network</span><span class=p>:</span><span class=w> </span><span class=l>h2</span><span class=w>
+</span><span class=w>  </span><span class=nt>tls</span><span class=p>:</span><span class=w> </span><span class=kc>true</span><span class=w>
+</span><span class=w>  </span><span class=nt>h2-opts</span><span class=p>:</span><span class=w>
+</span><span class=w>    </span><span class=nt>host</span><span class=p>:</span><span class=w>
+</span><span class=w>      </span>- <span class=l>http.example.com</span><span class=w>
+</span><span class=w>      </span>- <span class=l>http-alt.example.com</span><span class=w>
+</span><span class=w>    </span><span class=nt>path</span><span class=p>:</span><span class=w> </span><span class=l>/</span><span class=w>
+</span></code></pre></div><p>docker-compose.yml内容如下。ui换成yacd。version改为3.7就报错，查阅后发现是docker和docker-compose版本不是最新的原因。 在线网页<code>clash.razord.top</code>和<code>yacd.haishan.me</code>。</p><div class=highlight><pre class=chroma><code class=language-yml data-lang=yml><span class=nt>version</span><span class=p>:</span><span class=w> </span><span class=s1>&#39;3.6&#39;</span><span class=w>
+</span><span class=w></span><span class=nt>services</span><span class=p>:</span><span class=w>
+</span><span class=w>  </span><span class=nt>clash</span><span class=p>:</span><span class=w>
+</span><span class=w>    </span><span class=nt>image</span><span class=p>:</span><span class=w> </span><span class=l>dreamacro/clash-premium:latest</span><span class=w>
+</span><span class=w>    </span><span class=c>#devices:</span><span class=w>
+</span><span class=w>      </span><span class=c>#- /dev/net/tun</span><span class=w>
+</span><span class=w>    </span><span class=nt>volumes</span><span class=p>:</span><span class=w>
+</span><span class=w>      </span>- <span class=l>./config.yaml:/root/.config/clash/config.yaml</span><span class=w>
+</span><span class=w>      </span>- <span class=l>./yacd-gh-pages:/ui</span><span class=w>
+</span><span class=w>    </span><span class=nt>ports</span><span class=p>:</span><span class=w>
+</span><span class=w>      </span>- <span class=s2>&#34;7890:7890&#34;</span><span class=w>
+</span><span class=w>      </span><span class=c>#- &#34;7891:7891&#34;</span><span class=w>
+</span><span class=w>      </span>- <span class=s2>&#34;7892:7892&#34;</span><span class=w>
+</span><span class=w>      </span>- <span class=s2>&#34;9090:9090&#34;</span><span class=w>
+</span><span class=w>      </span>- <span class=s2>&#34;1053:1053&#34;</span><span class=w>
+</span><span class=w>    </span><span class=nt>restart</span><span class=p>:</span><span class=w> </span><span class=l>always</span><span class=w>
+</span><span class=w>    </span><span class=nt>network_mode</span><span class=p>:</span><span class=w> </span><span class=s2>&#34;host&#34;</span><span class=w>
+</span><span class=w>    </span><span class=nt>container_name</span><span class=p>:</span><span class=w> </span><span class=l>clash</span><span class=w>
+</span></code></pre></div></div></div><div class=pagination><div class=pagination__title><span class=pagination__title-h>Read other posts</span><hr></div><div class=pagination__buttons><span class="button previous"><a href=https://ywycd.github.io/post/lan-https-autho/><span class=button__icon>←</span>
+<span class=button__text>局域网https认证</span></a></span>
+<span class="button next"><a href=https://ywycd.github.io/post/netlify-some-changes/><span class=button__text>托管在Netlify的博客更改记录</span>
+<span class=button__icon>→</span></a></span></div></div></div><div class=post-toc id=post-toc><h2 class=post-toc-title></h2><div class="post-toc-content always-active"><nav id=TableOfContents></nav></div></div></div><footer class=footer><div class=footer__inner><div class="copyright copyright--user"><span>:: Powered by <a href=http://gohugo.io>Hugo</a> 0.82.0</span>
+<span>:: Theme made by <a href=https://twitter.com/panr>panr</a></span></div></div></footer><a id=back-to-top style=display:inline-block href=javascript:void(0); onclick="window.scrollTo({top:0,behavior:'smooth'})"><span class="iconfont icon-top"></span></a><script src=https://ywycd.github.io/assets/main.js?d41d8cd98f00b204e9800998ecf8427e></script><script>const addCopyButtons=function(a){document.querySelectorAll('pre > code').forEach(function(d){const b=document.createElement('button');b.className='copy-code-button',b.type='button',b.innerText='Copy';const c=document.createElement('div');c.className='copy-code-button-wrap',c.appendChild(b),b.addEventListener('click',function(){a.writeText(d.innerText).then(function(){b.blur(),b.innerText='Done!',setTimeout(function(){b.innerText='Copy'},2e3)},function(a){b.innerText='Error'})});const e=d.parentNode;e.insertAdjacentElement('beforebegin',c)})};window.addEventListener('load',function(b){const a=document.links;for(let b=0,c=a.length;b<c;b++)a[b].hostname!=window.location.hostname&&!a[b].href.startsWith('javascript:')&&!a[b].href.startsWith('mailto:')&&(a[b].target='_blank');document.querySelectorAll('#TableOfContents li').length>0&&(document.querySelector('#post-toc').style.display='block'),document.querySelectorAll('#post-toc a').forEach(a=>{a.addEventListener('click',a=>{document.querySelectorAll('#post-toc a').forEach(a=>{a.classList.remove('active')}),a.target.classList.add('active')})}),document.querySelectorAll('a[href^="#"]').forEach(a=>{a.addEventListener('click',function(a){a.preventDefault(),document.getElementById(this.getAttribute('href').substring(1)).scrollIntoView({behavior:'smooth'})})}),navigator&&navigator.clipboard&&addCopyButtons(navigator.clipboard)})</script></div></body></html>

@@ -1,4 +1,292 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en-US"><title>ywy</title><id>https://ywycd.github.io/</id><description>Recent content on ywy</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><updated>2021-03-28T06:36:08Z</updated><link href="https://ywycd.github.io/atom.xml" rel="self" type="application/rss+xml"/><entry><title>托管在Netlify的博客更改记录</title><id>https://ywycd.github.io/post/netlify-some-changes/</id><link href="https://ywycd.github.io/post/netlify-some-changes/" rel="alternate" type="text/html"/><updated>2021-03-28T06:36:08Z</updated><published>2021-03-28T02:55:31Z</published><description>切换Git分支 切换为 main 两边博客分支不同，看灯大博客可以修改分支，开始操作。 git checkout master git branch -m main # 删除本地分支 git branch -d master # 删除远程分支 git push origin …</description><content type="html"><![CDATA[
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en-US"><title>ywy</title><id>https://ywycd.github.io/</id><description>Recent content on ywy</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><updated>2021-04-07T02:05:28Z</updated><link href="https://ywycd.github.io/atom.xml" rel="self" type="application/rss+xml"/><entry><title>阅读介绍</title><id>https://ywycd.github.io/post/gedoor-mybookshelf-introductin/</id><link href="https://ywycd.github.io/post/gedoor-mybookshelf-introductin/" rel="alternate" type="text/html"/><updated>2021-04-07T02:05:28Z</updated><published>2021-04-06T14:07:34Z</published><description>介绍 之前小说下载到本地，用阅读器看。还记得第一次用自带软件看完，不记录跳转上次进度，每次都要跳。换了其他阅读器。后面接触到阅读，需要自己找书</description><content type="html"><![CDATA[
+        <h2 id="介绍">介绍</h2>
+<p>之前小说下载到本地，用阅读器看。还记得第一次用自带软件看完，不记录跳转上次进度，每次都要跳。换了其他阅读器。后面接触到阅读，需要自己找书源导入，另外可选净化规则。可以自行设置界面弄背景之类，“奇迹暖暖阅读”。</p>
+<p>现在共有三个版本，阅读2.0、阅读3.0、阅读pro。pro在play商店，公众号活跃可以兑换。之前一直用2.0，加了大佬书源、净化，自己弄了某小说的目录正则。play支持作者，昨天下载使用，2.0备份后3.0导入旧版数据。重新校验了书院，100多个失效，导入关耳、namofree大佬的书源。体验了下，看书没有第一排百度搜索xx网站。然后本地小说，2.0目录会出现第一章（1），实际不识别，看全本问题不大。换成3.0观看，正则表达式很多，勾选一个就正常了！！后续主用3.0，可以听书、订阅、看漫画等。</p>
+<h2 id="阅读版本">阅读版本</h2>
+<p>2.0下载地址 <a href="https://github.com/gedoor/MyBookshelf/releases">https://github.com/gedoor/MyBookshelf/releases</a> 另外还有90盘地址。书源、净化要使用2.0专用。2.0最终书源 <a href="https://www.coolapk.com/feed/23913399">https://www.coolapk.com/feed/23913399</a> 和 <a href="https://www.52pojie.cn/thread-1321967-1-1.html">https://www.52pojie.cn/thread-1321967-1-1.html</a>。之前用这个 <a href="https://www.52pojie.cn/thread-1081455-1-1.html">https://www.52pojie.cn/thread-1081455-1-1.html</a> 导入规则，乌云大佬的排版还有其他大佬分享的书源。</p>
+<p>3.0下载地址 <a href="https://github.com/gedoor/legado">https://github.com/gedoor/legado</a>。用订阅源选择书源合集，分开导入就行，很方便。</p>
+<p>另外有pro版，其他根据阅读app修改的软件。</p>
+<h2 id="书源及其他">书源及其他</h2>
+<p>源仓库地址 <a href="http://yck.mumuceo.com/yuedu/shuyuan/index.html">http://yck.mumuceo.com/yuedu/shuyuan/index.html</a>，导入需要的书源，注意看版本号。3.0可以用订阅合集进行导入。也可以导入其他大佬书源合集，源不在多，适合自己的最好。</p>
+<p>一程大佬 <a href="https://gitee.com/vpq/yd">https://gitee.com/vpq/yd</a>。</p>
+<p>持续更新 <a href="https://yuedu.xiu2.xyz/">https://yuedu.xiu2.xyz/</a>。</p>
+<p>namofree小而精 <a href="http://shuyuan.miaogongzi.net/shuyuan/1617406392.json">http://shuyuan.miaogongzi.net/shuyuan/1617406392.json</a>。</p>
+<p>乌云大佬的净化规则，完整版27-38删减段落，精简正文，谨慎使用。详见 <a href="https://www.coolapk.com/feed/25288123">https://www.coolapk.com/feed/25288123</a>。不世玄奇分享的通用书源和全网搜书（3.0才能使用），使用方法见 <a href="https://www.coolapk.com/feed/25743162">https://www.coolapk.com/feed/25743162</a>。</p>
+<p>还可以设置界面、排版、字体等。使用在线tts，安装tts调用朗读等。源仓库有阅读主题分享。</p>
+
+      ]]></content></entry><entry><title>局域网https认证</title><id>https://ywycd.github.io/post/lan-https-autho/</id><link href="https://ywycd.github.io/post/lan-https-autho/" rel="alternate" type="text/html"/><updated>2021-04-07T02:05:28Z</updated><published>2021-04-06T12:15:55Z</published><description>感谢本地https快速解决方案 教程，开始看过这篇，win10下载失败就没继续。内网Filemanager证书错误，之前用frp曲线救助。证书</description><content type="html"><![CDATA[
+        <p>感谢<a href="https://www.jianshu.com/p/7cb5c2cffaaa">本地https快速解决方案</a> 教程，开始看过这篇，win10下载失败就没继续。内网Filemanager证书错误，之前用frp曲线救助。证书过期，更换证书出问题，决心研究下这个。</p>
+<p><a href="https://github.com/FiloSottile/mkcert/releases/latest">下载地址</a> 下载到本地后，win10cmd运行mkcert，提示不存在。需要加上程序名字运行。-install安装本地可信CA，最后出错。</p>
+<pre><code>D:\Downloads&gt;mkcert
+'mkcert' 不是内部或外部命令，也不是可运行的程序
+或批处理文件。
+
+D:\Downloads&gt;mkcert-v1.4.3-windows-amd64 -install
+The local CA is already installed in the system trust store! 👍
+ERROR: failed to execute &quot;keytool -importcert&quot;: exit status 1
+
+Certificate was added to keystore
+keytool error: java.io.FileNotFoundException: C:\Program Files (x86)\Java\jre1.8.0_151\lib\security\cacerts (�ܾ����ʡ�)
+</code></pre><p>局域网内使用https，签发证书，加上本机的局域网ip认证。</p>
+<pre><code>D:\Downloads&gt;mkcert-v1.4.3-windows-amd64 localhost 127.0.0.1 ::1 192.168.2.144
+Note: the local CA is not installed in the Java trust store.
+Run &quot;mkcert -install&quot; for certificates to be trusted automatically ⚠️
+
+Created a new certificate valid for the following names 📜
+ - &quot;localhost&quot;
+ - &quot;127.0.0.1&quot;
+ - &quot;::1&quot;
+ - &quot;192.168.2.144&quot;
+
+The certificate is at &quot;./localhost+3.pem&quot; and the key at &quot;./localhost+3-key.pem&quot; ✅
+
+It will expire on 7 July 2023 🗓
+</code></pre><p>先来回忆一下证书可信的三个要素:</p>
+<ul>
+<li>由可信的CA机构签发</li>
+<li>访问的地址跟证书认证地址相符</li>
+<li>证书在有效期内</li>
+</ul>
+<p>更新内网机器的https证书，访问https://192.168.2.144是可信的。使用-CAROOT命令可以列出CA证书的存放路径。</p>
+<pre><code>D:\Downloads&gt;mkcert-v1.4.3-windows-amd64 -CAROOT
+C:\Users\ywy\AppData\Local\mkcert
+</code></pre><p>可以看到CA路径下有rootCA-key.pem和rootCA.pem两个文件，用户需要信任rootCA.pem这个文件。将rootCA.pem拷贝副本，并重命名为rootCA.crt(因为windows并不识别pem扩展名，并且Ubuntu也不会将pem扩展名作为CA证书文件对待)，将rootCA.crt文件分发给其他用户，手工导入。</p>
+<p>windows双击rootCA.crt，在证书导入向导中将证书导入<code>受信任的根证书颁发机构</code>。</p>
+<p>安卓手机设置搜索证书，有的可以直接安装证书。</p>
+<p>其他一些高级用法，<code>[-help]</code>看说明。比如<code>-cert-file FILE, -key-file FILE, -p12-file FILE</code>可以定义输出的证书文件名。<code>-pkcs12</code>命令可以产生PKCS12格式的证书。java程序通常不支持PEM格式的证书，但是支持PKCS12格式的证书。</p>
+
+      ]]></content></entry><entry><title>docker切换为Clash-premium</title><id>https://ywycd.github.io/post/change-to-clash-premium/</id><link href="https://ywycd.github.io/post/change-to-clash-premium/" rel="alternate" type="text/html"/><updated>2021-04-07T02:05:28Z</updated><published>2021-04-06T12:14:52Z</published><description>EMBY推荐使用clash tun模式，加上其他原因考虑换成clash-premium。惯例查阅资料，开启tun，结果显示Start Tun interface error: CreateTUN(\&amp;quot;utun\&amp;quot;) failed;</description><content type="html"><![CDATA[
+        <p>EMBY推荐使用clash tun模式，加上其他原因考虑换成clash-premium。惯例查阅资料，开启tun，结果显示<code>Start Tun interface error: CreateTUN(\&quot;utun\&quot;) failed; /dev/net/tun does not exist</code>。另外从<a href="https://github.com/comzyh/clash/releases">comzyh</a> 处下载tun内核，改名放到/dev/net/tun，错误。配置.yml里加devices，提示<code>ERROR: for clash  Cannot start service clash: linux runtime spec devices: error gathering device information while adding custom device &quot;/dev/net/tun&quot;: not a device node</code> 可能需要映射，或者系统运行tun，无奈放弃。</p>
+<p>复制<a href="https://zhezhiyu.xyz/archives/94">该博客</a> Premiere版完整配置。由于不是直接订阅clash, <code>proxy-providers</code>改为<code>proxies</code>，其他地方有修改。Premiere支持订阅规则，用RULE-SET。后续发现局域网走代理，加<code>- RULE-SET,lancidr,DIRECT</code>。</p>
+<div class="highlight"><pre class="chroma"><code class="language-yaml" data-lang="yaml"><span class="nt">mixed-port</span><span class="p">:</span><span class="w"> </span><span class="m">7890</span><span class="w">
+</span><span class="w"></span><span class="c">#socks-port: 7891</span><span class="w">
+</span><span class="w"></span><span class="nt">redir-port</span><span class="p">:</span><span class="w"> </span><span class="m">7892</span><span class="w">
+</span><span class="w"></span><span class="c">#authentication:</span><span class="w">
+</span><span class="w"></span><span class="c">#- &#34;user1:pw1&#34;</span><span class="w">
+</span><span class="w"></span><span class="nt">allow-lan</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+</span><span class="w"></span><span class="nt">bind-address</span><span class="p">:</span><span class="w"> </span><span class="s1">&#39;*&#39;</span><span class="w">
+</span><span class="w"></span><span class="nt">mode</span><span class="p">:</span><span class="w"> </span><span class="l">Rule</span><span class="w">
+</span><span class="w"></span><span class="nt">log-level</span><span class="p">:</span><span class="w"> </span><span class="l">info</span><span class="w">
+</span><span class="w"></span><span class="nt">external-controller</span><span class="p">:</span><span class="w"> </span><span class="m">0.0.0.0</span><span class="p">:</span><span class="m">9090</span><span class="w">
+</span><span class="w"></span><span class="nt">external-ui</span><span class="p">:</span><span class="w"> </span><span class="l">/ui</span><span class="w">
+</span><span class="w"></span><span class="nt">secret</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;pw&#34;</span><span class="w">
+</span><span class="w"></span><span class="nt">interface-name</span><span class="p">:</span><span class="w"> </span><span class="l">eh0</span><span class="w">
+</span><span class="w"></span><span class="c">#tun: </span><span class="w">
+</span><span class="w">   </span><span class="c">#enable: true</span><span class="w">
+</span><span class="w">   </span><span class="c">#stack: system # or gvisor</span><span class="w">
+</span><span class="w">   </span><span class="c">#dns-hijack:</span><span class="w">
+</span><span class="w">     </span><span class="c">#- tcp://8.8.8.8:53</span><span class="w">
+</span><span class="w">     </span><span class="c">#- 8.8.8.8:1053</span><span class="w">
+</span><span class="w">   </span><span class="c">#macOS-auto-route: true</span><span class="w">
+</span><span class="w"></span><span class="nt">dns</span><span class="p">:</span><span class="w">
+</span><span class="w"></span><span class="nt">enable</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+</span><span class="w"></span><span class="nt">ipv6</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
+</span><span class="w"></span><span class="nt">listen</span><span class="p">:</span><span class="w"> </span><span class="m">0.0.0.0</span><span class="p">:</span><span class="m">1053</span><span class="w">
+</span><span class="w"></span><span class="nt">enhanced-mode</span><span class="p">:</span><span class="w"> </span><span class="l">redir-host</span><span class="w">
+</span><span class="w"></span><span class="nt">nameserver</span><span class="p">:</span><span class="w">
+</span><span class="w">  </span>- <span class="m">114.114.114.114</span><span class="w">
+</span><span class="w">  </span>- <span class="m">119.29.29.29</span><span class="w">
+</span><span class="w">  </span>- <span class="m">223.5.5.5</span><span class="w">
+</span><span class="w">  </span>- <span class="l">tls://dns.rubyfish.cn:853</span><span class="w">
+</span><span class="w"></span><span class="nt">fallback</span><span class="p">:</span><span class="w">
+</span><span class="w">  </span>- <span class="l">tls://8.8.8.8:853</span><span class="w">
+</span><span class="w">  </span>- <span class="l">tcp://208.67.222.222:443</span><span class="w">
+</span><span class="w">  </span>- <span class="l">https://doh.pub/dns-query</span><span class="w">
+</span><span class="w">
+</span><span class="w"></span><span class="nt">rule-providers</span><span class="p">:</span><span class="w">
+</span><span class="w"></span><span class="nt">reject</span><span class="p">:</span><span class="w">
+</span><span class="w"></span><span class="c"># 拦截域名,可选拦截</span><span class="w">
+</span><span class="w">  </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l">http</span><span class="w">
+</span><span class="w">  </span><span class="nt">behavior</span><span class="p">:</span><span class="w"> </span><span class="l">domain</span><span class="w">
+</span><span class="w">  </span><span class="nt">url</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;https://cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/reject.txt&#34;</span><span class="w">
+</span><span class="w">  </span><span class="nt">path</span><span class="p">:</span><span class="w"> </span><span class="l">./ruleset/reject.yaml</span><span class="w">
+</span><span class="w">  </span><span class="nt">interval</span><span class="p">:</span><span class="w"> </span><span class="m">86400</span><span class="w">
+</span><span class="w">
+</span><span class="w"></span><span class="nt">icloud</span><span class="p">:</span><span class="w">
+</span><span class="w"></span><span class="c"># iCloud直连域名,建议直连</span><span class="w">
+</span><span class="w">  </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l">http</span><span class="w">
+</span><span class="w">  </span><span class="nt">behavior</span><span class="p">:</span><span class="w"> </span><span class="l">domain</span><span class="w">
+</span><span class="w">  </span><span class="nt">url</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;https://cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/icloud.txt&#34;</span><span class="w">
+</span><span class="w">  </span><span class="nt">path</span><span class="p">:</span><span class="w"> </span><span class="l">./ruleset/icloud.yaml</span><span class="w">
+</span><span class="w">  </span><span class="nt">interval</span><span class="p">:</span><span class="w"> </span><span class="m">86400</span><span class="w">
+</span><span class="w">
+</span><span class="w"></span><span class="nt">apple</span><span class="p">:</span><span class="w">
+</span><span class="w"></span><span class="c"># 苹果直连域名,建议直连</span><span class="w">
+</span><span class="w">  </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l">http</span><span class="w">
+</span><span class="w">  </span><span class="nt">behavior</span><span class="p">:</span><span class="w"> </span><span class="l">domain</span><span class="w">
+</span><span class="w">  </span><span class="nt">url</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;https://cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/apple.txt&#34;</span><span class="w">
+</span><span class="w">  </span><span class="nt">path</span><span class="p">:</span><span class="w"> </span><span class="l">./ruleset/apple.yaml</span><span class="w">
+</span><span class="w">  </span><span class="nt">interval</span><span class="p">:</span><span class="w"> </span><span class="m">86400</span><span class="w">
+</span><span class="w">
+</span><span class="w"></span><span class="nt">google</span><span class="p">:</span><span class="w">
+</span><span class="w"></span><span class="c"># 谷歌直连域名,建议直连</span><span class="w">
+</span><span class="w">  </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l">http</span><span class="w">
+</span><span class="w">  </span><span class="nt">behavior</span><span class="p">:</span><span class="w"> </span><span class="l">domain</span><span class="w">
+</span><span class="w">  </span><span class="nt">url</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;https://cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/google.txt&#34;</span><span class="w">
+</span><span class="w">  </span><span class="nt">path</span><span class="p">:</span><span class="w"> </span><span class="l">./ruleset/google.yaml</span><span class="w">
+</span><span class="w">  </span><span class="nt">interval</span><span class="p">:</span><span class="w"> </span><span class="m">86400</span><span class="w">
+</span><span class="w">
+</span><span class="w"></span><span class="nt">proxy</span><span class="p">:</span><span class="w">
+</span><span class="w"></span><span class="c"># 需要代理的域名</span><span class="w">
+</span><span class="w">  </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l">http</span><span class="w">
+</span><span class="w">  </span><span class="nt">behavior</span><span class="p">:</span><span class="w"> </span><span class="l">domain</span><span class="w">
+</span><span class="w">  </span><span class="nt">url</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;https://cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/proxy.txt&#34;</span><span class="w">
+</span><span class="w">  </span><span class="nt">path</span><span class="p">:</span><span class="w"> </span><span class="l">./ruleset/proxy.yaml</span><span class="w">
+</span><span class="w">  </span><span class="nt">interval</span><span class="p">:</span><span class="w"> </span><span class="m">86400</span><span class="w">
+</span><span class="w">
+</span><span class="w"></span><span class="nt">direct</span><span class="p">:</span><span class="w">
+</span><span class="w"></span><span class="c"># 直连域名</span><span class="w">
+</span><span class="w">  </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l">http</span><span class="w">
+</span><span class="w">  </span><span class="nt">behavior</span><span class="p">:</span><span class="w"> </span><span class="l">domain</span><span class="w">
+</span><span class="w">  </span><span class="nt">url</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;https://cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/direct.txt&#34;</span><span class="w">
+</span><span class="w">  </span><span class="nt">path</span><span class="p">:</span><span class="w"> </span><span class="l">./ruleset/direct.yaml</span><span class="w">
+</span><span class="w">  </span><span class="nt">interval</span><span class="p">:</span><span class="w"> </span><span class="m">86400</span><span class="w">
+</span><span class="w">
+</span><span class="w"></span><span class="nt">gfw</span><span class="p">:</span><span class="w">
+</span><span class="w"></span><span class="c"># GFW域名列表</span><span class="w">
+</span><span class="w">  </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l">http</span><span class="w">
+</span><span class="w">  </span><span class="nt">behavior</span><span class="p">:</span><span class="w"> </span><span class="l">domain</span><span class="w">
+</span><span class="w">  </span><span class="nt">url</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;https://cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/gfw.txt&#34;</span><span class="w">
+</span><span class="w">  </span><span class="nt">path</span><span class="p">:</span><span class="w"> </span><span class="l">./ruleset/gfw.yaml</span><span class="w">
+</span><span class="w">  </span><span class="nt">interval</span><span class="p">:</span><span class="w"> </span><span class="m">86400</span><span class="w">
+</span><span class="w">
+</span><span class="w"></span><span class="nt">greatfire</span><span class="p">:</span><span class="w">
+</span><span class="w"></span><span class="c"># GreatFire域名</span><span class="w">
+</span><span class="w">  </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l">http</span><span class="w">
+</span><span class="w">  </span><span class="nt">behavior</span><span class="p">:</span><span class="w"> </span><span class="l">domain</span><span class="w">
+</span><span class="w">  </span><span class="nt">url</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;https://cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/greatfire.txt&#34;</span><span class="w">
+</span><span class="w">  </span><span class="nt">path</span><span class="p">:</span><span class="w"> </span><span class="l">./ruleset/greatfire.yaml</span><span class="w">
+</span><span class="w">  </span><span class="nt">interval</span><span class="p">:</span><span class="w"> </span><span class="m">86400</span><span class="w">
+</span><span class="w">
+</span><span class="w"></span><span class="nt">tld-not-cn</span><span class="p">:</span><span class="w">
+</span><span class="w"></span><span class="c"># 非中国大陆使用的顶级域名列表</span><span class="w">
+</span><span class="w">  </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l">http</span><span class="w">
+</span><span class="w">  </span><span class="nt">behavior</span><span class="p">:</span><span class="w"> </span><span class="l">domain</span><span class="w">
+</span><span class="w">  </span><span class="nt">url</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;https://cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/tld-not-cn.txt&#34;</span><span class="w">
+</span><span class="w">  </span><span class="nt">path</span><span class="p">:</span><span class="w"> </span><span class="l">./ruleset/tld-not-cn.yaml</span><span class="w">
+</span><span class="w">  </span><span class="nt">interval</span><span class="p">:</span><span class="w"> </span><span class="m">86400</span><span class="w">
+</span><span class="w">
+</span><span class="w"></span><span class="nt">telegramcidr</span><span class="p">:</span><span class="w">
+</span><span class="w"></span><span class="c"># TG使用的IP地址</span><span class="w">
+</span><span class="w">  </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l">http</span><span class="w">
+</span><span class="w">  </span><span class="nt">behavior</span><span class="p">:</span><span class="w"> </span><span class="l">ipcidr</span><span class="w">
+</span><span class="w">  </span><span class="nt">url</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;https://cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/telegramcidr.txt&#34;</span><span class="w">
+</span><span class="w">  </span><span class="nt">path</span><span class="p">:</span><span class="w"> </span><span class="l">./ruleset/telegramcidr.yaml</span><span class="w">
+</span><span class="w">  </span><span class="nt">interval</span><span class="p">:</span><span class="w"> </span><span class="m">86400</span><span class="w">
+</span><span class="w">
+</span><span class="w"></span><span class="nt">cncidr</span><span class="p">:</span><span class="w">
+</span><span class="w"></span><span class="c"># 中国IP段</span><span class="w">
+</span><span class="w">  </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l">http</span><span class="w">
+</span><span class="w">  </span><span class="nt">behavior</span><span class="p">:</span><span class="w"> </span><span class="l">ipcidr</span><span class="w">
+</span><span class="w">  </span><span class="nt">url</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;https://cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/cncidr.txt&#34;</span><span class="w">
+</span><span class="w">  </span><span class="nt">path</span><span class="p">:</span><span class="w"> </span><span class="l">./ruleset/cncidr.yaml</span><span class="w">
+</span><span class="w">  </span><span class="nt">interval</span><span class="p">:</span><span class="w"> </span><span class="m">86400</span><span class="w">
+</span><span class="w">
+</span><span class="w"></span><span class="nt">lancidr</span><span class="p">:</span><span class="w">
+</span><span class="w"></span><span class="c"># 局域网IP段</span><span class="w">
+</span><span class="w">  </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l">http</span><span class="w">
+</span><span class="w">  </span><span class="nt">behavior</span><span class="p">:</span><span class="w"> </span><span class="l">ipcidr</span><span class="w">
+</span><span class="w">  </span><span class="nt">url</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;https://cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/lancidr.txt&#34;</span><span class="w">
+</span><span class="w">  </span><span class="nt">path</span><span class="p">:</span><span class="w"> </span><span class="l">./ruleset/lancidr.yaml</span><span class="w">
+</span><span class="w">  </span><span class="nt">interval</span><span class="p">:</span><span class="w"> </span><span class="m">86400</span><span class="w">
+</span><span class="w">
+</span><span class="w"></span><span class="nt">proxies</span><span class="p">:</span><span class="w">
+</span><span class="w"></span>- <span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="s1">&#39;ss1&#39;</span><span class="w">
+</span><span class="w">  </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l">ss</span><span class="w">
+</span><span class="w">  </span><span class="nt">server</span><span class="p">:</span><span class="w"> </span><span class="s1">&#39;your-server.com&#39;</span><span class="w">
+</span><span class="w">  </span><span class="nt">port</span><span class="p">:</span><span class="w"> </span><span class="m">2333</span><span class="w">
+</span><span class="w">  </span><span class="nt">cipher</span><span class="p">:</span><span class="w"> </span><span class="l">rc4-md5</span><span class="w">
+</span><span class="w">  </span><span class="nt">password</span><span class="p">:</span><span class="w"> </span><span class="s1">&#39;your-password&#39;</span><span class="w">
+</span><span class="w"></span>- {<span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;vmess2&#34;</span><span class="nt">, type: vmess, server: server, port: 443, uuid: uuid, alterId: 32, cipher: auto, tls</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w"> </span>}<span class="w"> 
+</span><span class="w">
+</span><span class="w"></span><span class="nt">proxy-groups</span><span class="p">:</span><span class="w">
+</span><span class="w"></span>- <span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="s1">&#39;auto&#39;</span><span class="w">
+</span><span class="w">  </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l">url-test</span><span class="w">
+</span><span class="w">  </span><span class="nt">proxies</span><span class="p">:</span><span class="w"> 
+</span><span class="w">    </span>- <span class="l">ss1</span><span class="w">
+</span><span class="w">    </span>- <span class="l">vmess2</span><span class="w">
+</span><span class="w">  </span><span class="nt">url</span><span class="p">:</span><span class="w"> </span><span class="s1">&#39;https://www.gstatic.com/generate_204&#39;</span><span class="w">
+</span><span class="w">  </span><span class="nt">interval</span><span class="p">:</span><span class="w"> </span><span class="m">300</span><span class="w">
+</span><span class="w"></span>- <span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="s1">&#39;Proxy&#39;</span><span class="w">
+</span><span class="w">  </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l">select</span><span class="w">
+</span><span class="w">  </span><span class="nt">proxies</span><span class="p">:</span><span class="w"> 
+</span><span class="w">    </span>- <span class="l">auto</span><span class="w">
+</span><span class="w">    </span>- <span class="l">ss1</span><span class="w">
+</span><span class="w">    </span>- <span class="l">vmess2</span><span class="w">
+</span><span class="w"></span><span class="nt">rules</span><span class="p">:</span><span class="w">
+</span><span class="w"></span>- <span class="l">PROCESS-NAME,v2ray,DIRECT</span><span class="w">
+</span><span class="w"></span>- <span class="l">PROCESS-NAME,Surge%203,DIRECT</span><span class="w">
+</span><span class="w"></span>- <span class="l">PROCESS-NAME,ss-local,DIRECT</span><span class="w">
+</span><span class="w"></span>- <span class="l">PROCESS-NAME,privoxy,DIRECT</span><span class="w">
+</span><span class="w"></span>- <span class="l">PROCESS-NAME,trojan,DIRECT</span><span class="w">
+</span><span class="w"></span>- <span class="l">PROCESS-NAME,trojan-go,DIRECT</span><span class="w">
+</span><span class="w"></span>- <span class="l">PROCESS-NAME,naive,DIRECT</span><span class="w">
+</span><span class="w"></span>- <span class="l">PROCESS-NAME,Thunder,DIRECT</span><span class="w">
+</span><span class="w"></span>- <span class="l">PROCESS-NAME,DownloadService,DIRECT</span><span class="w">
+</span><span class="w"></span>- <span class="l">PROCESS-NAME,qBittorrent,DIRECT</span><span class="w">
+</span><span class="w"></span>- <span class="l">PROCESS-NAME,Transmission,DIRECT</span><span class="w">
+</span><span class="w"></span>- <span class="l">PROCESS-NAME,fdm,DIRECT</span><span class="w">
+</span><span class="w"></span>- <span class="l">PROCESS-NAME,aria2c,DIRECT</span><span class="w">
+</span><span class="w"></span>- <span class="l">PROCESS-NAME,Folx,DIRECT</span><span class="w">
+</span><span class="w"></span>- <span class="l">PROCESS-NAME,NetTransport,DIRECT</span><span class="w">
+</span><span class="w"></span>- <span class="l">PROCESS-NAME,uTorrent,DIRECT</span><span class="w">
+</span><span class="w"></span>- <span class="l">PROCESS-NAME,WebTorrent,DIRECT</span><span class="w">
+</span><span class="w"></span>- <span class="l">DOMAIN,animebytes.tv,DIRECT</span><span class="w">
+</span><span class="w"></span>- <span class="l">DOMAIN,clash.razord.top,DIRECT</span><span class="w">
+</span><span class="w"></span>- <span class="l">DOMAIN,yacd.haishan.me,DIRECT</span><span class="w">
+</span><span class="w"></span>- <span class="l">DOMAIN,embyserver.media,EMBY</span><span class="w">
+</span><span class="w"></span>- <span class="l">RULE-SET,reject,🛑 全球拦截</span><span class="w">
+</span><span class="w"></span>- <span class="l">RULE-SET,icloud,DIRECT</span><span class="w">
+</span><span class="w"></span>- <span class="l">RULE-SET,apple,DIRECT</span><span class="w">
+</span><span class="w"></span>- <span class="l">RULE-SET,google,DIRECT</span><span class="w">
+</span><span class="w"></span>- <span class="l">RULE-SET,lancidr,DIRECT</span><span class="w">
+</span><span class="w"></span>- <span class="l">RULE-SET,proxy,🔰 节点选择</span><span class="w">
+</span><span class="w"></span>- <span class="l">RULE-SET,greatfire,🔰 节点选择</span><span class="w">
+</span><span class="w"></span>- <span class="l">RULE-SET,gfw,🔰 节点选择</span><span class="w">
+</span><span class="w"></span>- <span class="l">RULE-SET,telegramcidr,📲 电报信息</span><span class="w">
+</span><span class="w"></span>- <span class="l">RULE-SET,direct,DIRECT</span><span class="w">
+</span><span class="w"></span>- <span class="l">GEOIP,CN,DIRECT</span><span class="w">
+</span><span class="w"></span>- <span class="l">MATCH,🐟 漏网之鱼</span><span class="w">
+</span></code></pre></div><p><a href="https://github.com/Loyalsoldier/clash-rules">Clash Premium 规则集</a>
+<a href="https://lancellc.gitbook.io/clash/">wiki</a>
+<a href="https://github.com/Dreamacro/clash/wiki">官方wiki</a></p>
+<p>看wiki, 加了h2的vmess节点, 添加成功。</p>
+<div class="highlight"><pre class="chroma"><code class="language-yaml" data-lang="yaml"><span class="nt">proxies</span><span class="p">:</span><span class="w">
+</span><span class="w"></span>- <span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;vmess-h2&#34;</span><span class="w">
+</span><span class="w">  </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l">vmess</span><span class="w">
+</span><span class="w">  </span><span class="nt">server</span><span class="p">:</span><span class="w"> </span><span class="l">server</span><span class="w">
+</span><span class="w">  </span><span class="nt">port</span><span class="p">:</span><span class="w"> </span><span class="m">443</span><span class="w">
+</span><span class="w">  </span><span class="nt">uuid</span><span class="p">:</span><span class="w"> </span><span class="l">uuid</span><span class="w">
+</span><span class="w">  </span><span class="nt">alterId</span><span class="p">:</span><span class="w"> </span><span class="m">32</span><span class="w">
+</span><span class="w">  </span><span class="nt">cipher</span><span class="p">:</span><span class="w"> </span><span class="l">auto</span><span class="w">
+</span><span class="w">  </span><span class="nt">network</span><span class="p">:</span><span class="w"> </span><span class="l">h2</span><span class="w">
+</span><span class="w">  </span><span class="nt">tls</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+</span><span class="w">  </span><span class="nt">h2-opts</span><span class="p">:</span><span class="w">
+</span><span class="w">    </span><span class="nt">host</span><span class="p">:</span><span class="w">
+</span><span class="w">      </span>- <span class="l">http.example.com</span><span class="w">
+</span><span class="w">      </span>- <span class="l">http-alt.example.com</span><span class="w">
+</span><span class="w">    </span><span class="nt">path</span><span class="p">:</span><span class="w"> </span><span class="l">/</span><span class="w">
+</span></code></pre></div><p>docker-compose.yml内容如下。ui换成yacd。version改为3.7就报错，查阅后发现是docker和docker-compose版本不是最新的原因。 在线网页<code>clash.razord.top</code>和<code>yacd.haishan.me</code>。</p>
+<div class="highlight"><pre class="chroma"><code class="language-yml" data-lang="yml"><span class="nt">version</span><span class="p">:</span><span class="w"> </span><span class="s1">&#39;3.6&#39;</span><span class="w">
+</span><span class="w"></span><span class="nt">services</span><span class="p">:</span><span class="w">
+</span><span class="w">  </span><span class="nt">clash</span><span class="p">:</span><span class="w">
+</span><span class="w">    </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l">dreamacro/clash-premium:latest</span><span class="w">
+</span><span class="w">    </span><span class="c">#devices:</span><span class="w">
+</span><span class="w">      </span><span class="c">#- /dev/net/tun</span><span class="w">
+</span><span class="w">    </span><span class="nt">volumes</span><span class="p">:</span><span class="w">
+</span><span class="w">      </span>- <span class="l">./config.yaml:/root/.config/clash/config.yaml</span><span class="w">
+</span><span class="w">      </span>- <span class="l">./yacd-gh-pages:/ui</span><span class="w">
+</span><span class="w">    </span><span class="nt">ports</span><span class="p">:</span><span class="w">
+</span><span class="w">      </span>- <span class="s2">&#34;7890:7890&#34;</span><span class="w">
+</span><span class="w">      </span><span class="c">#- &#34;7891:7891&#34;</span><span class="w">
+</span><span class="w">      </span>- <span class="s2">&#34;7892:7892&#34;</span><span class="w">
+</span><span class="w">      </span>- <span class="s2">&#34;9090:9090&#34;</span><span class="w">
+</span><span class="w">      </span>- <span class="s2">&#34;1053:1053&#34;</span><span class="w">
+</span><span class="w">    </span><span class="nt">restart</span><span class="p">:</span><span class="w"> </span><span class="l">always</span><span class="w">
+</span><span class="w">    </span><span class="nt">network_mode</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;host&#34;</span><span class="w">
+</span><span class="w">    </span><span class="nt">container_name</span><span class="p">:</span><span class="w"> </span><span class="l">clash</span><span class="w">
+</span></code></pre></div>
+      ]]></content></entry><entry><title>托管在Netlify的博客更改记录</title><id>https://ywycd.github.io/post/netlify-some-changes/</id><link href="https://ywycd.github.io/post/netlify-some-changes/" rel="alternate" type="text/html"/><updated>2021-03-28T06:36:08Z</updated><published>2021-03-28T02:55:31Z</published><description>切换Git分支 切换为 main 两边博客分支不同，看灯大博客可以修改分支，开始操作。 git checkout master git branch -m main # 删除本地分支 git branch -d master # 删除远程分支 git push origin …</description><content type="html"><![CDATA[
         <h2 id="切换git分支">切换Git分支</h2>
 <h3 id="切换为-main">切换为 main</h3>
 <p>两边博客分支不同，看灯大博客可以修改分支，开始操作。</p>
