@@ -1,7 +1,7 @@
 ---
-title: "Tvlive"
+title: "电视直播"
 date: 2024-02-12T11:29:46Z
-tags: ["enshan", "iptv"]
+tags: ["enshan", "live"]
 draft: false
 ---
 去年广电整改，直播软件纷纷失效，好处是盒子能直接进直播。

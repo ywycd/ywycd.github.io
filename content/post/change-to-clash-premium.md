@@ -1,12 +1,4 @@
 ---
-<<<<<<< HEAD
-title: "Change to Clash Premium"
-date: 2021-04-06T12:14:52Z
-tags: ["", ""]
-draft: true
----
-
-=======
 title: "docker切换为Clash-premium"
 date: 2021-04-06T12:14:52Z
 tags: ["docker"]
@@ -250,8 +242,3 @@ services:
     network_mode: "host"
     container_name: clash
 ```
-  
-  
-  
-  
->>>>>>> a5fcc59fc3d7a08275fcf39bd271fab0c6622f91
