@@ -1,11 +1,4 @@
 ---
-<<<<<<< HEAD
-title: "Lan Https Autho"
-date: 2021-04-06T12:15:55Z
-tags: ["", ""]
-draft: true
----
-=======
 title: "局域网https认证"
 date: 2021-04-06T12:15:55Z
 tags: ["https"]
@@ -60,8 +53,4 @@ C:\Users\ywy\AppData\Local\mkcert
   安卓手机设置搜索证书，有的可以直接安装证书。
   
   其他一些高级用法，`[-help]`看说明。比如`-cert-file FILE, -key-file FILE, -p12-file FILE`可以定义输出的证书文件名。`-pkcs12`命令可以产生PKCS12格式的证书。java程序通常不支持PEM格式的证书，但是支持PKCS12格式的证书。
-
-
-
->>>>>>> a5fcc59fc3d7a08275fcf39bd271fab0c6622f91
 
