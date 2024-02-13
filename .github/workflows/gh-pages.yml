@@ -20,10 +20,10 @@ jobs:
           submodules: true  
           fetch-depth: 0    
       
-      - name: set up WARP
-        uses: fscarmen/warp-on-actions@v1.0
-        with:
-          mode: wireguard
+      #- name: set up WARP
+        #uses: fscarmen/warp-on-actions@v1.0
+        #with:
+          #mode: wireguard
           
       - name: Setup Hugo
         uses: peaceiris/actions-hugo@v2
