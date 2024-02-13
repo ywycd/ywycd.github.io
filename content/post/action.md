@@ -13,3 +13,4 @@ draft: false
   git rebase 
   git push origin main
   ```
+  推送build出错，119格式不支持换'0.80.0'。Deploy出错忘记把with下的deploy_token改成github_token。
