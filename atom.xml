@@ -1,4 +1,57 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en-US"><title>ywy</title><id>https://ywycd.github.io/</id><description>Recent content on ywy</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><updated>2024-02-13T06:16:35Z</updated><link href="https://ywycd.github.io/atom.xml" rel="self" type="application/rss+xml"/><entry><title>Action排队中解决</title><id>https://ywycd.github.io/post/action/</id><link href="https://ywycd.github.io/post/action/" rel="alternate" type="text/html"/><updated>2024-02-13T06:16:35Z</updated><published>2024-02-13T04:47:17Z</published><description>码字更新推送，发现action排队，查看GitHub Pages Action生成deploy_key填入，推送还是排队。 查看action-hugo，更</description><content type="html"><![CDATA[
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en-US"><title>ywy</title><id>https://ywycd.github.io/</id><description>Recent content on ywy</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><updated>2024-03-22T11:32:41Z</updated><link href="https://ywycd.github.io/atom.xml" rel="self" type="application/rss+xml"/><entry><title>备忘录1</title><id>https://ywycd.github.io/post/memo1/</id><link href="https://ywycd.github.io/post/memo1/" rel="alternate" type="text/html"/><updated>2024-03-22T11:32:41Z</updated><published>2024-03-22T09:59:53Z</published><description>有的文章里链接已无法访问，最好还是本地备份。记录解决方法，免得下次还要搜索挺久。 用 cURL 自動更新 Cloudflare IP 地址實現 DDNS 登录 Cloudflare 账号，然后在「My Profi</description><content type="html"><![CDATA[
+        <p>有的文章里链接已无法访问，最好还是本地备份。记录解决方法，免得下次还要搜索挺久。</p>
+<p>
+
+
+
+
+
+
+
+
+<a href="https://ignorance.nova.moe/ddns-with-cloudflare/" >用 cURL 自動更新 Cloudflare IP 地址實現 DDNS</a></p>
+<p>登录 Cloudflare 账号，然后在「My Profile」创建「API Token」，权限Zone.Zone, Zone.DNS ，用-H “Authorization: Bearer xxxxxxxx”授权。</p>
+<p><strong>获得 ZoneID 和 Record ID</strong></p>
+<p><code>curl -X GET &quot;https://api.cloudflare.com/client/v4/zones -H “Authorization: Bearer xxxxxxxx”</code>
+获取所有 Zones，找到对应域名的 Zone ID。
+<code>curl -X GET &quot;https://api.cloudflare.com/client/v4/zones/&lt;域名的 ZoneID&gt;/dns\_records&quot; -H &quot;Authorization: Bearer xxxxxxx&quot;      -H &quot;Content-Type:application/json&quot;</code>
+再找到对应的 Record ID。</p>
+<p><strong>修改 Record 解析</strong></p>
+<div class="highlight"><pre class="chroma"><code class="language-sh" data-lang="sh">home<span class="se">\_</span>ip<span class="o">=</span><span class="k">$(</span>curl ip.sb<span class="k">)</span>
+curl -X PUT <span class="s2">&#34;https://api.cloudflare.com/client/v4/zones/&lt;域名的 ZoneID&gt;/dns\_records/&lt;Record ID&gt;&#34;</span> <span class="se">\\</span>
+     -H <span class="s2">&#34;Authorization: Bearer xxxxxxx&#34;</span> <span class="se">\\</span>
+     -H <span class="s2">&#34;Content-Type: application/json&#34;</span> <span class="se">\\</span>
+     --data <span class="s1">&#39;{&#34;type&#34;:&#34;A&#34;,&#34;name&#34;:&#34;domain&#34;,&#34;content&#34;:&#34;&#39;</span><span class="nv">$home</span><span class="se">\_</span>ip<span class="s1">&#39;&#34;,&#34;ttl&#34;:120,&#34;proxied&#34;:false}&#39;</span>
+</code></pre></div><p>修改ip变量和域名，cron定时更新。</p>
+<p>笔记本新帐户键盘输入字母变成数字和字符，搜索是因为那几个键数字小键盘。<code>FN+NumLK</code>。</p>
+<p>
+
+
+
+
+
+
+
+
+<a href="https://bbs.letitfly.me/d/1129" >屏蔽 bilibili / bilibili 漫画的青少年模式提示</a>
+b漫把日期调到很多年后，打开app，再把日期改回来。</p>
+<p>
+
+
+
+
+
+
+
+
+<a href="https://bbs.letitfly.me/d/1192" >屏蔽QQ升级提示和弹窗（需root）</a></p>
+<p>准备可root文件管理器和终端。QQ检测更新的配置文件地址为/data/data/com.tencent.mobileqq/files/upgrade_config/config_upgrade_xxxxxx（xxxxxx为QQ号）。使用编辑文本的方式打开它，照注释按需求修改。</p>
+<p>保存文件后还要修改文件权限，防止屑QQ再改回去。然而使用chmod修改还是会改回，所以我们使用更加强力的chattr。
+打开终端后先获取root权限，输入su/tsu回车。根据自身情况修改以下指令：</p>
+<div class="highlight"><pre class="chroma"><code class="language-sh" data-lang="sh">busybox chattr +i /data/data/com.tencent.mobileqq/files/upgrade_config/config_upgrade_xxxxxx
+</code></pre></div><p>修改完后复制进入终端执行即可。如果想测试是否修改成功，可以尝试用文件管理器删除config_upgrade_xxxxxx文件，无法删除即修改成功。偶尔还是会提示更新。另外卸载QQ之前记得把权限修改回去，只需要把指令中的+i改为-i即可。</p>
+
+      ]]></content></entry><entry><title>Action排队中解决</title><id>https://ywycd.github.io/post/action/</id><link href="https://ywycd.github.io/post/action/" rel="alternate" type="text/html"/><updated>2024-02-13T06:16:35Z</updated><published>2024-02-13T04:47:17Z</published><description>码字更新推送，发现action排队，查看GitHub Pages Action生成deploy_key填入，推送还是排队。 查看action-hugo，更</description><content type="html"><![CDATA[
         <p>码字更新推送，发现action排队，查看GitHub Pages Action生成deploy_key填入，推送还是排队。</p>
 <p>查看action-hugo，更新workflow。推送不了，Fine-grained tokens的权限action和workflow选读写。误传某key推送git。</p>
 <p>ac出错无法发布，更改hugo版本不行。本地hugo也出错，查看对应md多了head等字符，第一次推送git pull加的吧。本地hugo测试陆续修改出错md。<code>hugo server -d</code> 访问ok。更换GITHUB_TOKEN。</p>
@@ -180,10 +233,10 @@ git push origin main
 
 <a href="https://www.right.com.cn/forum/thread-464371-1-1.html" >从外部访问光猫除了威屁恩,和单臂路由还有没有别的方法</a></p>
 
-      ]]></content></entry><entry><title>阅读介绍</title><id>https://ywycd.github.io/post/gedoor-mybookshelf-introductin/</id><link href="https://ywycd.github.io/post/gedoor-mybookshelf-introductin/" rel="alternate" type="text/html"/><updated>2024-02-13T05:13:25Z</updated><published>2021-04-06T14:07:34Z</published><description>介绍 之前小说下载到本地，用阅读器看。还记得第一次用自带软件看完，不记录跳转上次进度，每次都要跳。换了其他阅读器。后面接触到阅读，需要自己找书</description><content type="html"><![CDATA[
+      ]]></content></entry><entry><title>阅读介绍</title><id>https://ywycd.github.io/post/gedoor-mybookshelf-introductin/</id><link href="https://ywycd.github.io/post/gedoor-mybookshelf-introductin/" rel="alternate" type="text/html"/><updated>2024-03-22T11:32:41Z</updated><published>2021-04-06T14:07:34Z</published><description>介绍 之前小说下载到本地，用阅读器看。还记得第一次用自带软件看完，不记录跳转上次进度，每次都要跳。换了其他阅读器。后面接触到阅读，需要自己找书</description><content type="html"><![CDATA[
         <h2 id="介绍">介绍</h2>
-<p>之前小说下载到本地，用阅读器看。还记得第一次用自带软件看完，不记录跳转上次进度，每次都要跳。换了其他阅读器。后面接触到阅读，需要自己找书源导入，另外可选净化规则。可以自行设置界面弄背景之类，“奇迹暖暖阅读”。
-现在共有三个版本，阅读2.0、阅读3.0、阅读pro。pro在play商店，公众号活跃可以兑换。之前一直用2.0，加了大佬书源、净化，自己弄了某小说的目录正则。play支持作者，昨天下载使用，2.0备份后3.0导入旧版数据。重新校验了书院，100多个失效，导入关耳、namofree大佬的书源。体验了下，看书没有第一排百度搜索xx网站。然后本地小说，2.0目录会出现第一章（1），实际不识别，看全本问题不大。换成3.0观看，正则表达式很多，前面勾选一个就正常了！！后续主用3.0，可以听书、订阅、看漫画等。</p>
+<p>之前小说下载到本地，用阅读器看。还记得第一次用自带软件看完，不记录跳转上次进度，每次都要跳。换了其他阅读器。后面接触到阅读，需要自己找书源导入，另外可选净化规则。可以自行设置界面弄背景之类，“奇迹暖暖阅读”。</p>
+<p>现在共有三个版本，阅读2.0、阅读3.0、阅读pro。pro在play商店，公众号活跃可以兑换。之前一直用2.0，加了大佬书源、净化，自己弄了某小说的目录正则。play支持作者，昨天下载使用，2.0备份后3.0导入旧版数据。重新校验了书院，100多个失效，导入关耳、namofree大佬的书源。体验了下，看书没有第一排百度搜索xx网站。然后本地小说，2.0目录会出现第一章（1），实际不识别，看全本问题不大。换成3.0观看，正则表达式很多，前面勾选一个就正常了！！后续主用3.0，可以听书、订阅、看漫画等。</p>
 <h2 id="阅读版本">阅读版本</h2>
 <p>2.0下载地址 <a href="https://github.com/gedoor/MyBookshelf/releases">https://github.com/gedoor/MyBookshelf/releases</a> 另外还有90盘地址。书源、净化要使用2.0专用。2.0最终书源 <a href="https://www.coolapk.com/feed/23913399">https://www.coolapk.com/feed/23913399</a> 和 <a href="https://www.52pojie.cn/thread-1321967-1-1.html">https://www.52pojie.cn/thread-1321967-1-1.html</a>。 之前用这个 <a href="https://www.52pojie.cn/thread-1081455-1-1.html">https://www.52pojie.cn/thread-1081455-1-1.html</a> 导入规则，乌云大佬的排版还有其他大佬分享的书源。</p>
 <p>3.0下载地址 <a href="https://github.com/gedoor/legado">https://github.com/gedoor/legado</a>。用订阅源选择书源合集，分开导入就行，很方便。
@@ -195,7 +248,6 @@ git push origin main
 <p>namofree小而精 <a href="http://shuyuan.miaogongzi.net/shuyuan/1617406392.json">http://shuyuan.miaogongzi.net/shuyuan/1617406392.json</a>。</p>
 <p>乌云大佬的净化规则，完整版27-38删减段落，精简正文。谨慎使用。详见https://www.coolapk.com/feed/25288123 。不世玄奇分享的通用书源和全网搜书（3.0才能使用），使用方法见https://www.coolapk.com/feed/25743162 。
 另外还可以设置界面、排版、字体等。使用在线tts，安装tts调用朗读等。源仓库有阅读主题分享。用朗读等。源仓库有阅读主题分享。</p>
-<p>现在共有三个版本，阅读2.0、阅读3.0、阅读pro。pro在play商店，公众号活跃可以兑换。之前一直用2.0，加了大佬书源、净化，自己弄了某小说的目录正则。play支持作者，昨天下载使用，2.0备份后3.0导入旧版数据。重新校验了书院，100多个失效，导入关耳、namofree大佬的书源。体验了下，看书没有第一排百度搜索xx网站。然后本地小说，2.0目录会出现第一章（1），实际不识别，看全本问题不大。换成3.0观看，正则表达式很多，勾选一个就正常了！！后续主用3.0，可以听书、订阅、看漫画等。</p>
 <h2 id="阅读版本-1">阅读版本</h2>
 <p>2.0下载地址 <a href="https://github.com/gedoor/MyBookshelf/releases">https://github.com/gedoor/MyBookshelf/releases</a> 另外还有90盘地址。书源、净化要使用2.0专用。2.0最终书源 <a href="https://www.coolapk.com/feed/23913399">https://www.coolapk.com/feed/23913399</a> 和 <a href="https://www.52pojie.cn/thread-1321967-1-1.html">https://www.52pojie.cn/thread-1321967-1-1.html</a>。之前用这个 <a href="https://www.52pojie.cn/thread-1081455-1-1.html">https://www.52pojie.cn/thread-1081455-1-1.html</a> 导入规则，乌云大佬的排版还有其他大佬分享的书源。</p>
 <p>3.0下载地址 <a href="https://github.com/gedoor/legado">https://github.com/gedoor/legado</a>。用订阅源选择书源合集，分开导入就行，很方便。</p>
