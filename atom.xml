@@ -1,4 +1,256 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en-US"><title>ywy</title><id>https://ywycd.github.io/</id><description>Recent content on ywy</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><updated>2024-03-22T11:32:41Z</updated><link href="https://ywycd.github.io/atom.xml" rel="self" type="application/rss+xml"/><entry><title>备忘录1</title><id>https://ywycd.github.io/post/memo1/</id><link href="https://ywycd.github.io/post/memo1/" rel="alternate" type="text/html"/><updated>2024-03-22T11:32:41Z</updated><published>2024-03-22T09:59:53Z</published><description>有的文章里链接已无法访问，最好还是本地备份。记录解决方法，免得下次还要搜索挺久。 用 cURL 自動更新 Cloudflare IP 地址實現 DDNS 登录 Cloudflare 账号，然后在「My Profi</description><content type="html"><![CDATA[
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en-US"><title>ywy</title><id>https://ywycd.github.io/</id><description>Recent content on ywy</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><updated>2024-04-16T15:35:44Z</updated><link href="https://ywycd.github.io/atom.xml" rel="self" type="application/rss+xml"/><entry><title>Tailscale内网穿透</title><id>https://ywycd.github.io/post/tailscale/</id><link href="https://ywycd.github.io/post/tailscale/" rel="alternate" type="text/html"/><updated>2024-04-16T15:35:44Z</updated><published>2024-04-16T15:05:32Z</published><description>最初看到讨论连接内网最好有几种方案，免得失联干着急。异地办理移动宽带公网v6想外网访问，搜索发现tailscale，更为易用、功能更完善的 W</description><content type="html"><![CDATA[
+        <p>最初看到讨论连接内网最好有几种方案，免得失联干着急。异地办理移动宽带公网v6想外网访问，搜索发现tailscale，更为易用、功能更完善的 WireGuard。</p>
+<h2 id="配置">配置</h2>
+<p>
+
+
+
+
+
+
+
+
+<a href="https://tailscale.com/" >官网</a> 客户端<code>tailscale up</code>验证登录第三方，最好选直连方便点。</p>
+<h3 id="linux">Linux</h3>
+<p>
+
+
+
+
+
+
+
+
+<a href="https://pkgs.tailscale.com/stable/#static" >官方静态二进制文件</a>  
+
+
+
+
+
+
+
+
+<a href="https://tailscale.com/download/linux" >安装</a></p>
+<div class="highlight"><pre class="chroma"><code class="language-sh" data-lang="sh">wget https://pkgs.tailscale.com/stable/tailscale_1.38.2_arm64.tgz
+tar zxvf tailscale_1.38.2_arm64.tgz
+cp tailscale_1.38.2_arm64/tailscaled /usr/sbin/tailscaled
+cp tailscale_1.38.2_arm64/tailscale /usr/bin/tailscale
+cp tailscale_1.38.2_arm64/systemd/tailscaled.service /lib/systemd/system/tailscaled.service
+cp tailscale_1.38.2_arm64/systemd/tailscaled.defaults /etc/default/tailscaled
+</code></pre></div><p>启动 tailscaled.service 并设置开机自启</p>
+<div class="highlight"><pre class="chroma"><code class="language-sh" data-lang="sh">systemctl <span class="nb">enable</span> --now tailscaled
+</code></pre></div><p>hiboy的
+
+
+
+
+
+
+
+
+<a href="https://opt.cn2qq.com/opt-script/" >老毛子插件</a> 
+
+
+
+
+
+
+
+
+<a href="https://gcore.jsdelivr.net/gh/HiboyHiboy/opt-file/wireguard-go" >wireguard-go</a> 
+
+
+
+
+
+
+
+
+<a href="https://gcore.jsdelivr.net/gh/HiboyHiboy/opt-file/tailscale" >tailscale</a>。hanwckf版尝试失败懒得刷机，N1小钢炮entware安装wireguard缺少依赖。wireguard安装和使用比较苛刻，内核要求高，应该源码编译能成功。docker wireguard几年前的镜像。下载tgz解压进文件夹运行<code>./tailscale up</code>验证，日志提示upnp。</p>
+<h3 id="android">Android</h3>
+<p>play或F-Droid下载客户端，1.30.0 版本开始支持自定义服务器。重复点开关闭右上角的“三个点“会出现 <code>Change server</code> 选项。</p>
+<h3 id="windows">Windows</h3>
+<p>安装。headscale自建打开<code>https://&lt;HEADSCALE&gt;/windows</code>注册表或命令行，目录命令行才可以。</p>
+<h2 id="局域网">局域网</h2>
+<p>目前只是点对点互通。打通局域网，内网一台设备安装tailscale转发后，也可访问其他。</p>
+<h3 id="设置路由转发">设置路由转发</h3>
+<div class="highlight"><pre class="chroma"><code class="language-sh" data-lang="sh"><span class="nb">echo</span> <span class="s1">&#39;net.ipv4.ip_forward = 1&#39;</span> <span class="p">|</span> tee /etc/sysctl.d/ipforwarding.conf
+<span class="nb">echo</span> <span class="s1">&#39;net.ipv6.conf.all.forwarding = 1&#39;</span> <span class="p">|</span> tee -a /etc/sysctl.d/ipforwarding.conf
+sysctl -p /etc/sysctl.d/ipforwarding.conf
+</code></pre></div><p>客户端运行，自行修改子网，多条路由用 <code>,</code> 隔开</p>
+<div class="highlight"><pre class="chroma"><code class="language-sh" data-lang="sh">tailscale up --accept-routes<span class="o">=</span><span class="nb">true</span> --accept-dns<span class="o">=</span><span class="nb">false</span> --advertise-routes<span class="o">=</span>192.168.2.0/24 --reset
+</code></pre></div><p>其他节点启动时需要增加 <code>--accept-routes=true</code>。</p>
+<p>
+
+
+
+
+
+
+
+
+<a href="https://login.tailscale.com/admin/machines" >登录控制台</a>对应设备点击右边三点，选<code>Edit route settings</code>勾选路由save。<code>Exit node</code>出口节点指所有流量经过设备。<code>Disabled key expiry</code> 长期连接可选，不然6个月需重新验证。</p>
+<h3 id="ndm自启">NDM自启</h3>
+<p>
+
+
+
+
+
+
+
+
+<a href="https://www.right.com.cn/forum/thread-8279487-1-1.html" >老毛子安装tailscale</a>下载脚本，路由器空间和cpu问题打算放N1。出错修改内容，不像debian复制就行。打通不成功走中继，重启可直连。开机启动<code>null::sysinit:/bin/sh /root/tailscale.sh start</code> 添加到 <code>/etc/inittab</code> 最后。entware是<code>null::sysinit:/bin/sh /opt/etc/init.d/rc.unslung start</code>。</p>
+<div class="highlight"><pre class="chroma"><code class="language-sh" data-lang="sh"><span class="cp">#!/bin/sh
+</span><span class="cp"></span><span class="nv">tailscale</span><span class="o">=</span><span class="s2">&#34;/root/tailscale/tailscale&#34;</span>
+<span class="nv">tailscaled</span><span class="o">=</span><span class="s2">&#34;/root/tailscale/tailscaled&#34;</span>
+<span class="o">[</span> -f <span class="s2">&#34;/root/tailscale/tailscale&#34;</span> <span class="o">]</span> <span class="o">&amp;&amp;</span> <span class="nv">tailscale</span><span class="o">=</span><span class="s2">&#34;/root/tailscale/tailscale&#34;</span>
+<span class="o">[</span> -f <span class="s2">&#34;/root/tailscale/tailscaled&#34;</span> <span class="o">]</span> <span class="o">&amp;&amp;</span> <span class="nv">tailscaled</span><span class="o">=</span><span class="s2">&#34;/root/tailscale/tailscaled&#34;</span>
+<span class="nv">tag</span><span class="o">=</span><span class="k">$(</span>curl -k --silent <span class="s2">&#34;https://api.github.com/repos/lmq8267/tailscale/releases/latest&#34;</span> <span class="p">|</span> grep <span class="s1">&#39;&#34;tag_name&#34;:&#39;</span> <span class="p">|</span> sed -E <span class="s1">&#39;s/.*&#34;([^&#34;]+)&#34;.*/\1/&#39;</span><span class="k">)</span>
+<span class="o">[</span> -z <span class="s2">&#34;</span><span class="nv">$tag</span><span class="s2">&#34;</span> <span class="o">]</span> <span class="o">&amp;&amp;</span> <span class="nv">tag</span><span class="o">=</span><span class="s2">&#34;</span><span class="k">$(</span> curl -k -L --connect-timeout <span class="m">20</span> --silent https://api.github.com/repos/lmq8267/tailscale/releases/latest <span class="p">|</span> grep <span class="s1">&#39;tag_name&#39;</span> <span class="p">|</span> cut -d<span class="se">\&#34;</span> -f4 <span class="k">)</span><span class="s2">&#34;</span>
+
+tailscale_start <span class="o">()</span> <span class="o">{</span>
+     <span class="o">[</span> -f <span class="nv">$tailscale</span> <span class="o">]</span> <span class="o">&amp;&amp;</span> chmod <span class="m">777</span> <span class="nv">$tailscale</span>
+     <span class="o">[</span> -f <span class="nv">$tailscaled</span> <span class="o">]</span> <span class="o">&amp;&amp;</span> chmod <span class="m">777</span> <span class="nv">$tailscaled</span>
+     <span class="nv">taiver</span><span class="o">=</span><span class="k">$(</span><span class="nv">$tailscaled</span> -version <span class="p">|</span> sed -n <span class="s1">&#39;1p&#39;</span><span class="k">)</span>
+     <span class="nb">echo</span> <span class="s2">&#34;</span><span class="nv">$tag</span><span class="s2">&#34;</span>
+     <span class="nb">echo</span> <span class="s2">&#34;</span><span class="nv">$taiver</span><span class="s2">&#34;</span>
+     <span class="nv">$tailscaled</span> --cleanup
+     killall tailscaled tailscale
+     killall -9 tailscaled tailscale
+     <span class="nv">su_cmd2</span><span class="o">=</span><span class="s2">&#34;</span><span class="nv">$tailscaled</span><span class="s2"> --state=/var/lib/tailscale/tailscaled.state --socket=/var/run/tailscale/tailscaled.sock&#34;</span>
+     <span class="nb">eval</span> <span class="s2">&#34;</span><span class="nv">$su_cmd2</span><span class="s2">&#34;</span> <span class="p">&amp;</span>
+     sleep <span class="m">5</span>
+     iptables -C INPUT -i tailscale0 -j ACCEPT
+     <span class="k">if</span> <span class="o">[</span> <span class="s2">&#34;</span><span class="nv">$?</span><span class="s2">&#34;</span> !<span class="o">=</span> <span class="m">0</span> <span class="o">]</span> <span class="p">;</span> <span class="k">then</span>
+       iptables -A INPUT -i tailscale0 -j ACCEPT
+     <span class="k">fi</span>
+     <span class="nv">taiarp</span><span class="o">=</span><span class="k">$(</span>ifconfig tailscale0 <span class="p">|</span> grep NOARP <span class="p">|</span> awk <span class="s1">&#39;{print }&#39;</span><span class="k">)</span>
+     <span class="o">[</span> -n <span class="s2">&#34;</span><span class="nv">$taiarp</span><span class="s2">&#34;</span> <span class="o">]</span> <span class="o">&amp;&amp;</span> ifconfig tailscale0 arp <span class="o">&amp;&amp;</span> <span class="nb">echo</span> <span class="s2">&#34;【Tailscale】&#34;</span> <span class="s2">&#34;检测到接口已禁用arp地址解析协议,正在开启arp!&#34;</span>
+     <span class="nv">su_cmd</span><span class="o">=</span><span class="s2">&#34;</span><span class="nv">$tailscale</span><span class="s2"> up --accept-routes=true --accept-dns=false --advertise-routes=192.168.2.0/24  --reset&#34;</span>
+     <span class="nb">echo</span> <span class="s2">&#34;【Tailscale】&#34;</span> <span class="s2">&#34;启用子网路由&#34;</span>
+     <span class="nb">eval</span> <span class="s2">&#34;</span><span class="nv">$su_cmd</span><span class="s2">&#34;</span> <span class="p">&amp;</span>
+     sleep <span class="m">30</span>
+     <span class="nv">taip</span><span class="o">=</span><span class="sb">`</span><span class="nv">$tailscale</span> ip<span class="sb">`</span>
+     <span class="nb">echo</span> <span class="s2">&#34;【Tailscale】&#34;</span> <span class="s2">&#34;tailscale_IP:</span><span class="nv">$taip</span><span class="s2">&#34;</span>
+     <span class="nb">exit</span> <span class="m">0</span>
+<span class="o">}</span>  
+
+tailscale_restart <span class="o">()</span> <span class="o">{</span>
+  <span class="nb">echo</span> <span class="s2">&#34;【Tailscale】&#34;</span> <span class="s2">&#34;重新启动&#34;</span>
+  tailscale_start
+  
+<span class="o">}</span>
+
+tailscale_close <span class="o">()</span> <span class="o">{</span>
+  iptables -D INPUT -i tailscale0 -j ACCEPT
+  <span class="nv">$tailscaled</span> --cleanup
+  killall tailscaled tailscale
+  killall -9 tailscaled tailscale
+  sleep <span class="m">8</span>
+  <span class="o">[</span> -z <span class="s2">&#34;`pidof tailscaled`&#34;</span> <span class="o">]</span> <span class="o">&amp;&amp;</span> <span class="o">[</span> -z <span class="s2">&#34;`pidof tailscale`&#34;</span> <span class="o">]</span> <span class="o">&amp;&amp;</span> <span class="nb">echo</span> <span class="s2">&#34;【Tailscale】&#34;</span> <span class="s2">&#34;tailscale已关闭!&#34;</span>
+<span class="o">}</span>
+
+<span class="k">case</span> <span class="nv">$1</span> in
+start<span class="o">)</span>
+	tailscale_start
+	<span class="p">;;</span>
+restart<span class="o">)</span>
+	tailscale_restart
+	<span class="p">;;</span>
+stop<span class="o">)</span>
+	tailscale_close
+	<span class="p">;;</span>
+<span class="k">esac</span>
+</code></pre></div><p>常用命令</p>
+<p>查看ip<code>tailscale ip -4</code> 网络状况<code>tailscale status</code></p>
+<p>测试连接</p>
+<div class="highlight"><pre class="chroma"><code class="language-sh" data-lang="sh">tailscale ping &lt;hostname-or-ip&gt;
+</code></pre></div><p>设备状况</p>
+<div class="highlight"><pre class="chroma"><code class="language-sh" data-lang="sh">tailscale status
+</code></pre></div><h2 id="开源版headscale">开源版headscale</h2>
+<p>自定义网段无限设备。折腾很久终于成功运行加webui，再看到
+
+
+
+
+
+
+
+
+<a href="https://github.com/iFargle/headscale-webui/issues/79" >docker安装headscale+headscale-webui</a>回复，
+
+
+
+
+
+
+
+
+<a href="http://www.putianhui.cn/posts/2ac21da921f0/" >Docker安装headscale内网穿透服务</a>。</p>
+<h2 id="免费套餐">免费套餐</h2>
+<p>现在用户3设备100 ，<code>No more limits on subnet routers</code> 
+
+
+
+
+
+
+
+
+<a href="https://tailscale.com/blog/pricing-v3" >price-3</a>。当时用户1设备20路由1 
+
+
+
+
+
+
+
+
+<a href="https://tailscale.com/blog/2021-06-new-pricing" >price-2</a>。</p>
+<h2 id="reference">Reference</h2>
+<p>
+
+
+
+
+
+
+
+
+<a href="https://icloudnative.io/posts/how-to-set-up-or-migrate-headscale/" >Tailscale 基础教程：Headscale 的部署方法和使用教程</a></p>
+<p>
+
+
+
+
+
+
+
+
+<a href="https://www.right.com.cn/forum/thread-8279487-1-1.html" >padavan安装tailscale脚本和自建中继服务器derper</a></p>
+<p>
+
+
+
+
+
+
+
+
+<a href="https://tailscale.com/kb/1080/cli" >Tailscale CLI</a></p>
+<p>
+
+
+
+
+
+
+
+
+<a href="https://blog.gslin.org/archives/2023/04/19/11148/tailscale-%E6%94%BE%E9%AC%86%E5%85%8D%E8%B2%BB%E7%89%88%E7%9A%84%E4%BD%BF%E7%94%A8%E9%99%90%E5%88%B6%EF%BC%8C%E4%BB%A5%E5%8F%8A%E5%95%86%E6%A5%AD%E7%89%88%E7%9A%84%E8%A8%88%E7%AE%97%E6%96%B9%E5%BC%8F/" >Tailscale 放鬆免費版的使用限制，以及商業版的計算方式</a></p>
+
+      ]]></content></entry><entry><title>备忘录1</title><id>https://ywycd.github.io/post/memo1/</id><link href="https://ywycd.github.io/post/memo1/" rel="alternate" type="text/html"/><updated>2024-03-22T11:32:41Z</updated><published>2024-03-22T09:59:53Z</published><description>有的文章里链接已无法访问，最好还是本地备份。记录解决方法，免得下次还要搜索挺久。 用 cURL 自動更新 Cloudflare IP 地址實現 DDNS 登录 Cloudflare 账号，然后在「My Profi</description><content type="html"><![CDATA[
         <p>有的文章里链接已无法访问，最好还是本地备份。记录解决方法，免得下次还要搜索挺久。</p>
 <p>
 
